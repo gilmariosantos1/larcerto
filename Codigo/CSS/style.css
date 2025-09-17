@@ -14,7 +14,6 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -45,6 +44,15 @@ body {
   padding: 15px;
   text-align: left;
   margin: 20px 0;
+  
+}
+.filter img {
+  background-color: #5c4eff;
+  color: white;
+  position: absolute;
+  right: 20px;   /* cola no lado direito */
+  top: 400px;
+  
 }
 
 .filter input {
@@ -65,7 +73,7 @@ body {
 /* Menu de ícones */
 .icon-menu {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   gap: 15px;
   margin: 20px 0;
   flex-wrap: wrap;
@@ -83,6 +91,7 @@ body {
   color: #3700ff;
   font-weight: bold;
   transition: transform 0.4s;
+  justify-content: right;
 }
 
 .filter .icon-card img {
