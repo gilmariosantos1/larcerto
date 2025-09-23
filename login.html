@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doe e Ajude | Lar Certo</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- global -->
+  <link rel="stylesheet" href="css/login.css"> 
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="inicio.html" class="logo">🐾 Lar Certo</a>
+      <div class="navbar-links">
+        <a href="sobrenos.html">Quem somos?</a>
+        <a href="index.html">Quero adotar</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="doe.html" class="donate">DOE E AJUDE</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html">Cadastrar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+    <div class="register-container">
+         <img src="img/cadastro/Capturar.PNG" alt="Logo Lar Certo" class="register-logo">
+        <h2>Crie sua Conta</h2>
+        <p class="info-text">Para divulgar ou adotar um animalzinho, você precisa entrar em sua conta.</p>
+        <form class="register-form" action="#" method="post">
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Crie uma senha" required>
+
+        <button type="submit" onclick="enviarMensagem(event)">Entrar</button>
+        <div id="mensagem-enviada" style="display:none; position:fixed; bottom:20px; right:20px; background:#4caf50; color:#fff; padding:16px 24px; border-radius:8px; z-index:9999;">
+          Login realizado com sucesso! Redirecionando para a página inicial...
+        </div>
+        <script>
+          function enviarMensagem(event) {
+            event.preventDefault();
+            document.getElementById('mensagem-enviada').style.display = 'block';
+            setTimeout(function() {
+              window.location.href = 'inicio.html';
+            }, 2000);
+          }
+        </script>
+        </form>
+        <div class="register-footer">
+            Não tem uma conta? <a href="cadastro.html">Cadastrar</a>
+        </div>
+    </div>
+
+  <!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-content">
+    <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
+    <div class="footer-links">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Contato</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
