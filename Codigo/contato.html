@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos de Uso | Lar Certo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/terms.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">🐾 Lar Certo</a>
+      <div class="navbar-links">
+        <a href="sobrenos.html">Quem somos?</a>
+        <a href="index.html">Quero adotar</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="doe.html" class="donate">DOE E AJUDE</a>
+        <a href="entrar.html">Entrar</a>
+        <a href="cadastro.html">Cadastrar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo -->
+     <!-- ================= CONTATO ================= -->
+    <section class="contact-container">
+      <h1>Contato Lar Certo</h1>
+      <p>Tem alguma dúvida, sugestão ou quer saber mais sobre adoção e voluntariado? Entre em contato conosco! Nossa equipe está pronta para ajudar você e nossos amigos de quatro patas.</p>
+
+      <div class="contact-info">
+        <div><span>Nossa Equipe Sempre A Disposição</span></div>
+      </div>
+
+      <form class="contact-form" action="#" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <input type="text" name="assunto" placeholder="Assunto" required />
+        <textarea name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        <button type="submit" onclick="enviarMensagem(event)">Enviar Mensagem</button>
+        <div id="mensagem-enviada" style="display:none; position:fixed; bottom:20px; right:20px; background:#4caf50; color:#fff; padding:16px 24px; border-radius:8px; z-index:9999;">
+          Sua mensagem foi enviada! Nossa equipe retornará o mais breve possível.
+        </div>
+        <script>
+          function enviarMensagem(event) {
+            event.preventDefault();
+            document.getElementById('mensagem-enviada').style.display = 'block';
+            setTimeout(function() {
+              window.location.href = 'inicio.html';
+            }, 2000);
+          }
+        </script>
+      </form>
+
+  <!-- Footer -->
+ <footer class="footer">
+  <div class="container footer-content">
+    <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
+    <div class="footer-links">
+      <a href="privacidade.html">Política de Privacidade</a>
+      <a href="terms.html">Termos de Uso</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
