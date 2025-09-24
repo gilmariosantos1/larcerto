@@ -107,13 +107,13 @@ body {
   gap: 12px;
 }
 .animais-cadastrado-title {
-   background: #757bff;
-   color: #fff;
-   font-weight: bold;
-   font-size: 2rem;
-   padding: 7px 10px;
-   border-radius: 11px;
-   font-family: 'Poppins', sans-serif;
+  background: #757bff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 7px 10px;
+  border-radius: 11px;
+  font-family: "Poppins", sans-serif;
 }
 .animais-cadastrado-icon {
   background: #4979e2;

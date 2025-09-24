@@ -112,8 +112,8 @@ body {
   transition: box-shadow 0.2s, border 0.2s;
   cursor: pointer;
   padding: 5px 10px;
-  text-decoration: none; 
-  color: #2d2de4;      
+  text-decoration: none;
+  color: #2d2de4;
 }
 .menu-card:hover {
   box-shadow: 0 4px 16px rgba(45, 45, 228, 0.1);
@@ -347,4 +347,10 @@ body {
 
 .blog-card.expandido .resumo {
   display: block;
+}
+[vw] {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 9999;
 }
