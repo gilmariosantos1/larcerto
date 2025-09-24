@@ -25,17 +25,19 @@
 
 .container-faixa{
     width: 100%;
+    align-items: center;
     margin: 10px 0;
     background: #5c4eff;
     padding: 1px 0px;
-    height: 100px;
     color: aliceblue;
     border-radius: 6px;
     text-align: center;
-    font-size: 16px;
-    line-height: 1.3;
-    margin-top: 16px;
+    font-size: 18px;
+    line-height: 0;
+    margin-top: 14px;
+    height: 60px;
 }
+
 .container-faixa p {
     margin-top: 38px;
 }
@@ -46,13 +48,13 @@
 }
 
 .container-form {
-    padding: 10px;
+    padding: 11px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
     width: 100%;
     font-size: large;
-    text-align: center;
+    text-align: center;  
 }
 
 .button {
@@ -62,6 +64,8 @@
     font-size: 16px;
     cursor: pointer;
     width: 100%;
+    font-size: large;
+    
 }
 
 .btn-login {
@@ -77,16 +81,37 @@
     gap: 10px;
 }
 
-.btn-facebook, .btn-google {
-    background-color: #1877f2;
+
+.container-btn {
     color: white;
     font-size: medium;
+    
+}
+
+.container-btnn {
+    color: white;
+    font-size: large;
 }
 
 .btn-facebook {
-    background-color: #1877f2;
+    background-color: #1900ff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    margin-top: 2px;
 }
 
 .btn-google {
-    background-color: #db4437;
+    background-color: #525dff;
+    padding: 10px;
+    margin: 10px auto; 
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    margin-top: 2px;
 }
