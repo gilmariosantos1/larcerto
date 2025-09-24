@@ -1,84 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doe e Ajude | Lar Certo</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- global -->
-  <link rel="stylesheet" href="css/doe.css">   <!-- específico -->
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <a href="inicio.html" class="logo">🐾 Lar Certo</a>
-      <div class="navbar-links">
-        <a href="sobrenos.html">Quem somos?</a>
-        <a href="index.html">Quero adotar</a>
-        <a href="#">Blog</a>
-      </div>
-      <div class="navbar-actions">
-        <a href="doe.html" class="donate">DOE E AJUDE</a>
-        <a href="entrar.html">Entrar</a>
-        <a href="cadastro.html">Cadastrar</a>
-      </div>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doe e Ajude | Lar Certo</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- global -->
+    <link rel="stylesheet" href="css/doe.css" />
+    <!-- específico -->
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <a href="inicio.html" class="logo">🐾 Lar Certo</a>
+        <div class="navbar-links">
+          <a href="sobrenos.html">Quem somos?</a>
+          <a href="index.html">Quero adotar</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="doe.html" class="donate">DOE E AJUDE</a>
+          <a href="entrar.html">Entrar</a>
+          <a href="cadastro.html">Cadastrar</a>
+        </div>
+      </nav>
+    </header>
 
-  <!-- Hero -->
-  <section class="donate-hero">
-    <div class="donate-hero-content">
-      <h2>Faça Parte da Mudança 🐶🐱</h2>
-      <p>Com sua ajuda, podemos salvar vidas, oferecer cuidados e encontrar lares amorosos para animais abandonados.</p>
-      <a href="#opcoes" class="cta-btn">Quero Ajudar</a>
+    <!-- Hero -->
+    <section class="donate-hero">
+      <div class="donate-hero-content">
+        <h2>Faça Parte da Mudança 🐶🐱</h2>
+        <p>
+          Com sua ajuda, podemos salvar vidas, oferecer cuidados e encontrar
+          lares amorosos para animais abandonados.
+        </p>
+        <a href="#opcoes" class="cta-btn">Quero Ajudar</a>
+      </div>
+    </section>
+
+    <!-- Opções de doação -->
+    <main class="container" id="opcoes">
+      <h2 class="section-title">Como Você Pode Ajudar</h2>
+
+      <div class="donate-options">
+        <div class="donate-card">
+          <div class="donate-icon">💳</div>
+          <h3>Doação Única</h3>
+          <p>
+            Contribua uma vez e faça a diferença na vida de um animal hoje
+            mesmo.
+          </p>
+          <button>Doar agora</button>
+        </div>
+
+        <div class="donate-card">
+          <div class="donate-icon">🔁</div>
+          <h3>Doação Mensal</h3>
+          <p>
+            Seja um apoiador recorrente e ajude a garantir a continuidade do
+            nosso trabalho.
+          </p>
+          <button>Assinar doação</button>
+        </div>
+
+        <div class="donate-card">
+          <div class="donate-icon">🤝</div>
+          <h3>Seja Voluntário</h3>
+          <p>
+            Doe seu tempo em eventos, feiras de adoção e cuidados com os pets
+            resgatados.
+          </p>
+          <button>Inscreva-se</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- CTA final -->
+    <section class="donate-final-cta">
+      <h2>Juntos podemos mudar vidas ❤️</h2>
+      <p>
+        Cada contribuição é um passo a mais para dar um lar feliz a quem mais
+        precisa.
+      </p>
+      <a href="#opcoes" class="cta-btn">Ajudar Agora</a>
+    </section>
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
     </div>
-  </section>
 
-  <!-- Opções de doação -->
-  <main class="container" id="opcoes">
-    <h2 class="section-title">Como Você Pode Ajudar</h2>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
 
-    <div class="donate-options">
-      <div class="donate-card">
-        <div class="donate-icon">💳</div>
-        <h3>Doação Única</h3>
-        <p>Contribua uma vez e faça a diferença na vida de um animal hoje mesmo.</p>
-        <button>Doar agora</button>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Contato</a>
+        </div>
       </div>
-
-      <div class="donate-card">
-        <div class="donate-icon">🔁</div>
-        <h3>Doação Mensal</h3>
-        <p>Seja um apoiador recorrente e ajude a garantir a continuidade do nosso trabalho.</p>
-        <button>Assinar doação</button>
-      </div>
-
-      <div class="donate-card">
-        <div class="donate-icon">🤝</div>
-        <h3>Seja Voluntário</h3>
-        <p>Doe seu tempo em eventos, feiras de adoção e cuidados com os pets resgatados.</p>
-        <button>Inscreva-se</button>
-      </div>
-    </div>
-  </main>
-
-  <!-- CTA final -->
-  <section class="donate-final-cta">
-    <h2>Juntos podemos mudar vidas ❤️</h2>
-    <p>Cada contribuição é um passo a mais para dar um lar feliz a quem mais precisa.</p>
-    <a href="#opcoes" class="cta-btn">Ajudar Agora</a>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="container footer-content">
-    <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
-    <div class="footer-links">
-      <a href="#">Política de Privacidade</a>
-      <a href="#">Termos de Uso</a>
-      <a href="#">Contato</a>
-    </div>
-  </div>
-</footer>
-</body>
+    </footer>
+  </body>
 </html>

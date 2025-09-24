@@ -1,114 +1,153 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doe e Ajude | Lar Certo</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- global -->
-  <link rel="stylesheet" href="css/lares.css"> <!-- específico -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    // aguarda o DOM carregar
-    document.addEventListener("DOMContentLoaded", function() {
-      const map = L.map('lares-map').setView([-23.5505, -46.6333], 10);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doe e Ajude | Lar Certo</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- global -->
+    <link rel="stylesheet" href="css/lares.css" />
+    <!-- específico -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      // aguarda o DOM carregar
+      document.addEventListener("DOMContentLoaded", function () {
+        const map = L.map("lares-map").setView([-23.5505, -46.6333], 10);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+        }).addTo(map);
 
-      const lares = [
-        {nome: "Abrigo Amigo Pet", lat: -23.5505, lon: -46.6333, telefone: "(11) 99999-9999"},
-        {nome: "Lar dos Focinhos", lat: -22.9068, lon: -43.1729, telefone: "(21) 98888-8888"}
-      ];
+        const lares = [
+          {
+            nome: "Abrigo Amigo Pet",
+            lat: -23.5505,
+            lon: -46.6333,
+            telefone: "(11) 99999-9999",
+          },
+          {
+            nome: "Lar dos Focinhos",
+            lat: -22.9068,
+            lon: -43.1729,
+            telefone: "(21) 98888-8888",
+          },
+        ];
 
-      lares.forEach(lar => {
-        L.marker([lar.lat, lar.lon])
-          .addTo(map)
-          .bindPopup(`<b>${lar.nome}</b><br>${lar.telefone}`);
+        lares.forEach((lar) => {
+          L.marker([lar.lat, lar.lon])
+            .addTo(map)
+            .bindPopup(`<b>${lar.nome}</b><br>${lar.telefone}`);
+        });
       });
-    });
-  </script>
-</head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <a href="inicio.html" class="logo">🐾 Lar Certo</a>
-      <div class="navbar-links">
-        <a href="sobrenos.html">Quem somos?</a>
-        <a href="index.html">Quero adotar</a>
-        <a href="#">Blog</a>
-      </div>
-      <div class="navbar-actions">
-        <a href="doe.html" class="donate">DOE E AJUDE</a>
-        <a href="login.html">Entrar</a>
-        <a href="cadastro.html">Cadastrar</a>
-      </div>
-    </nav>
-  </header>
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <a href="inicio.html" class="logo">🐾 Lar Certo</a>
+        <div class="navbar-links">
+          <a href="sobrenos.html">Quem somos?</a>
+          <a href="index.html">Quero adotar</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="doe.html" class="donate">DOE E AJUDE</a>
+          <a href="login.html">Entrar</a>
+          <a href="cadastro.html">Cadastrar</a>
+        </div>
+      </nav>
+    </header>
 
-  <!-- Hero -->
-  <!-- Banner -->
-  <section class="lares-hero">
-    <div class="lares-hero-content">
-      <h2>Encontre Lares de Adoção 🏡</h2>
-      <p>Descubra ONGs e abrigos próximos que têm animais esperando por um novo lar cheio de amor.</p>
+    <!-- Hero -->
+    <!-- Banner -->
+    <section class="lares-hero">
+      <div class="lares-hero-content">
+        <h2>Encontre Lares de Adoção 🏡</h2>
+        <p>
+          Descubra ONGs e abrigos próximos que têm animais esperando por um novo
+          lar cheio de amor.
+        </p>
+      </div>
+    </section>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+      <h2 class="section-title">Lares próximos de você</h2>
+
+      <!-- Mapa -->
+      <div id="lares-map"></div>
+
+      <!-- Grid de abrigos -->
+      <div class="lares-grid">
+        <div class="lar-card">
+          <img
+            src="img/lares/como-ajudar-ong-de-animais-petlove1.jpg"
+            alt="Abrigo Amigo Pet"
+          />
+          <h3>Abrigo Amigo Pet</h3>
+          <p>Local: São Paulo - SP</p>
+          <p>Telefone: (11) 99999-9999</p>
+          <a href="#" class="lar-btn">Ver animais</a>
+        </div>
+
+        <div class="lar-card">
+          <img
+            src="img/lares/vista-elevada-de-um-mao-humana-afagar-cao.jpg"
+            alt="Lar dos Focinhos"
+          />
+          <h3>Lar dos Focinhos</h3>
+          <p>Local: Rio de Janeiro - RJ</p>
+          <p>Telefone: (21) 98888-8888</p>
+          <a href="#" class="lar-btn">Ver animais</a>
+        </div>
+
+        <div class="lar-card">
+          <img
+            src="img/lares/vulneravel-728x472-copiar.jpg"
+            alt="Patinhas Felizes"
+          />
+          <h3>Patinhas Felizes</h3>
+          <p>Local: Belo Horizonte - MG</p>
+          <p>Telefone: (31) 97777-7777</p>
+          <a href="#" class="lar-btn">Ver animais</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- CTA final -->
+    <section class="lares-final-cta">
+      <h2>Cadastre seu abrigo ou ONG 🐾</h2>
+      <p>
+        Ajude mais pessoas a conhecerem seu trabalho e encontrar lares para os
+        animais resgatados.
+      </p>
+      <a href="#" class="cta-btn">Cadastrar ONG</a>
+    </section>
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
     </div>
-  </section>
 
-  <!-- Conteúdo principal -->
-  <main class="container">
-    <h2 class="section-title">Lares próximos de você</h2>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
 
-    <!-- Mapa -->
-    <div id="lares-map"></div>
-
-    <!-- Grid de abrigos -->
-    <div class="lares-grid">
-      <div class="lar-card">
-        <img src="img/lares/como-ajudar-ong-de-animais-petlove1.jpg" alt="Abrigo Amigo Pet">
-        <h3>Abrigo Amigo Pet</h3>
-        <p>Local: São Paulo - SP</p>
-        <p>Telefone: (11) 99999-9999</p>
-        <a href="#" class="lar-btn">Ver animais</a>
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
+        <div class="footer-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Contato</a>
+        </div>
       </div>
-
-      <div class="lar-card">
-        <img src="img/lares/vista-elevada-de-um-mao-humana-afagar-cao.jpg" alt="Lar dos Focinhos">
-        <h3>Lar dos Focinhos</h3>
-        <p>Local: Rio de Janeiro - RJ</p>
-        <p>Telefone: (21) 98888-8888</p>
-        <a href="#" class="lar-btn">Ver animais</a>
-      </div>
-
-      <div class="lar-card">
-        <img src="img/lares/vulneravel-728x472-copiar.jpg" alt="Patinhas Felizes">
-        <h3>Patinhas Felizes</h3>
-        <p>Local: Belo Horizonte - MG</p>
-        <p>Telefone: (31) 97777-7777</p>
-        <a href="#" class="lar-btn">Ver animais</a>
-      </div>
-    </div>
-  </main>
-
-  <!-- CTA final -->
-  <section class="lares-final-cta">
-    <h2>Cadastre seu abrigo ou ONG 🐾</h2>
-    <p>Ajude mais pessoas a conhecerem seu trabalho e encontrar lares para os animais resgatados.</p>
-    <a href="#" class="cta-btn">Cadastrar ONG</a>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="container footer-content">
-    <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
-    <div class="footer-links">
-      <a href="#">Política de Privacidade</a>
-      <a href="#">Termos de Uso</a>
-      <a href="#">Contato</a>
-    </div>
-  </div>
-</footer>
-</body>
+    </footer>
+  </body>
 </html>
