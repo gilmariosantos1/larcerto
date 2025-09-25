@@ -1,49 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Doe e Ajude | Lar Certo</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- global -->
-    <link rel="stylesheet" href="css/lares.css" />
-    <!-- específico -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-      // aguarda o DOM carregar
-      document.addEventListener("DOMContentLoaded", function () {
-        const map = L.map("lares-map").setView([-23.5505, -46.6333], 10);
-
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: "&copy; OpenStreetMap contributors",
-        }).addTo(map);
-
-        const lares = [
-          {
-            nome: "Abrigo Amigo Pet",
-            lat: -23.5505,
-            lon: -46.6333,
-            telefone: "(11) 99999-9999",
-          },
-          {
-            nome: "Lar dos Focinhos",
-            lat: -22.9068,
-            lon: -43.1729,
-            telefone: "(21) 98888-8888",
-          },
-        ];
-
-        lares.forEach((lar) => {
-          L.marker([lar.lat, lar.lon])
-            .addTo(map)
-            .bindPopup(`<b>${lar.nome}</b><br>${lar.telefone}`);
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <!-- Header -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUERO DOAR</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lares.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="js/lares.js" defer></script>
+</head>
+<body>
     <header class="header">
       <nav class="navbar">
         <a href="inicio.html" class="logo">🐾 Lar Certo</a>
@@ -64,17 +31,16 @@
     <!-- Banner -->
     <section class="lares-hero">
       <div class="lares-hero-content">
-        <h2>Encontre Lares de Adoção 🏡</h2>
+        <h2>Encontre Seu Pet Aqui🏡</h2>
         <p>
-          Descubra ONGs e abrigos próximos que têm animais esperando por um novo
-          lar cheio de amor.
+         Seu amigo peludo, para dar e receber amor incondicional!
         </p>
       </div>
     </section>
 
     <!-- Conteúdo principal -->
     <main class="container">
-      <h2 class="section-title">Lares próximos de você</h2>
+      <h2 class="section-title">Lares Para Adoção</h2>
 
       <!-- Mapa -->
       <div id="lares-map"></div>
@@ -142,3 +108,6 @@
   </body>
 </html>
 
+    
+</body>
+</html>   
