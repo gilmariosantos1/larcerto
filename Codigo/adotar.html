@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUERO DOAR</title>
+    <title>Quero Adotar | Lar Certo</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/lares.css">
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="js/lares.js" defer></script>
+    <link rel="stylesheet" href="css/queroadotar.css">
+    <link rel="icon" href="img/adotar/pata.png" sizes="64x64" type="image/png">
 </head>
 <body>
     <header class="header">
       <nav class="navbar">
-        <a href="inicio.html" class="logo">🐾 Lar Certo</a>
+         <a href="inicio.html" class="logo">
+          <img src="img/image copy 3.png" alt="Lar Certo" />
+        </a>
         <div class="navbar-links">
           <a href="sobrenos.html">Quem somos?</a>
-          <a href="index.html">Quero adotar</a>
-          <a href="#">Blog</a>
+          <a href="adotar.html">Quero adotar</a>
+          <a href="blog.html">Blog</a>
         </div>
         <div class="navbar-actions">
           <a href="doe.html" class="donate">DOE E AJUDE</a>
@@ -27,61 +27,78 @@
       </nav>
     </header>
 
-    <!-- Hero -->
-    <!-- Banner -->
-    <section class="lares-hero">
-      <div class="lares-hero-content">
-        <h2>Encontre Seu Pet Aqui🏡</h2>
-        <p>
-         Seu amigo peludo, para dar e receber amor incondicional!
-        </p>
+ <!-- Banner -->
+  <section class="queroadotar-hero">
+    <div class="queroadotar-hero-content">
+      <h2>Encontre seu novo amigo 🐶🐱</h2>
+      <p>Veja animais disponíveis para adoção próximos de você e transforme vidas com amor.</p>
+    </div>
+  </section>
+
+  <!-- Grid de animais -->
+  <main class="container">
+    <h2 class="section-title">Animais disponíveis para adoção</h2>
+
+    <div class="animais-grid">
+      <div class="animal-card">
+        <img src="img/adotar/cat-551554_1280.jpg" alt="Rex">
+        <h3>Rex</h3>
+        <p>Idade: 2 meses</p>
+        <p>Raça: Mestiço</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
       </div>
-    </section>
 
-    <!-- Conteúdo principal -->
-    <main class="container">
-      <h2 class="section-title">Lares Para Adoção</h2>
-
-      <!-- Mapa -->
-      <div id="lares-map"></div>
-
-      <!-- Grid de abrigos -->
-      <div class="lares-grid">
-        <div class="lar-card">
-          <img
-            src="img/lares/como-ajudar-ong-de-animais-petlove1.jpg"
-            alt="Abrigo Amigo Pet"
-          />
-          <h3>Abrigo Amigo Pet</h3>
-          <p>Local: São Paulo - SP</p>
-          <p>Telefone: (11) 99999-9999</p>
-          <a href="#" class="lar-btn">Ver animais</a>
-        </div>
-
-        <div class="lar-card">
-          <img
-            src="img/lares/vista-elevada-de-um-mao-humana-afagar-cao.jpg"
-            alt="Lar dos Focinhos"
-          />
-          <h3>Lar dos Focinhos</h3>
-          <p>Local: Rio de Janeiro - RJ</p>
-          <p>Telefone: (21) 98888-8888</p>
-          <a href="#" class="lar-btn">Ver animais</a>
-        </div>
-
-        <div class="lar-card">
-          <img
-            src="img/lares/vulneravel-728x472-copiar.jpg"
-            alt="Patinhas Felizes"
-          />
-          <h3>Patinhas Felizes</h3>
-          <p>Local: Belo Horizonte - MG</p>
-          <p>Telefone: (31) 97777-7777</p>
-          <a href="#" class="lar-btn">Ver animais</a>
-        </div>
+      <div class="animal-card">
+        <img src="img/adotar/istockphoto-2169620101-612x612.webp" alt="Mimi">
+        <h3>Mimi</h3>
+        <p>Idade: 1 ano</p>
+        <p>Raça: Siames</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
       </div>
-    </main>
-    <!-- VLibras -->
+
+      <div class="animal-card">
+        <img src="img/adotar/OIP (1).jpg" alt="Toby">
+        <h3>Toby</h3>
+        <p>Idade: 2 anos</p>
+        <p>Raça: Vira-Lata</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
+      </div>
+
+      <div class="animal-card">
+        <img src="img/adotar/OIP (2).jpg" alt="Luna">
+        <h3>Luna</h3>
+        <p>Idade: 5 meses anos</p>
+        <p>Raça: Vira-Lata</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
+      </div>
+      
+      <div class="animal-card">
+        <img src="img/adotar/OIP.jpg" alt="Toby">
+        <h3>Totoy</h3>
+        <p>Idade: 3 anos</p>
+        <p>Raça: Chihuahua</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
+      </div>
+
+      <div class="animal-card">
+        <img src="img/adotar/projeto-imuniza-pet-oferece-vacinacao-gratuita-para-caes-e-gatos-de-pessoas-em-situacao-de-rua-em-maringa.webp" alt="Luna">
+        <h3>Wixn</h3>
+        <p>Idade: 2 anos</p>
+        <p>Raça: Beagle</p>
+        <a href="#" class="adotar-btn">Quero Adotar</a>
+      </div>
+    </div>
+    
+  </main>
+
+  <!-- CTA final -->
+  <section class="queroadotar-final-cta">
+    <h2>Não encontrou seu amigo?</h2>
+    <p>Entre em contato e descubra outros animais disponíveis em abrigos próximos.</p>
+    <a href="contato.html" class="cta-btn">Fale Conosco</a>
+  </section>
+
+  <!-- VLibras -->
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
@@ -99,15 +116,13 @@
       <div class="container footer-content">
         <p>🐾 Lar Certo © 2025 - Todos os direitos reservados</p>
         <div class="footer-links">
-          <a href="#">Política de Privacidade</a>
-          <a href="#">Termos de Uso</a>
-          <a href="#">Contato</a>
+          <a href="privacidade.html">Política de Privacidade</a>
+          <a href="terms.html">Termos de Uso</a>
+          <a href="contato.html">Contato</a>
         </div>
       </div>
     </footer>
   </body>
 </html>
-
-    
 </body>
 </html>   
