@@ -19,6 +19,15 @@ body {
   margin: auto;
   padding: 15px;
 }
+.logo img {
+  height: 36px; /* ajusta altura da logo */
+  width: auto;  /* mantém proporção */
+  display: block;
+}
+.logo img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 
 /* ================= HEADER ================= */
 .header .navbar {
@@ -90,7 +99,22 @@ body {
   background: #f0f0ff;
   color: #2d2de4;
 }
-
+.navbar-links a {
+  position: relative;
+}
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #2d2de4;
+  transition: width 0.3s;
+}
+.navbar-links a:hover::after {
+  width: 100%;
+}
 /* ================= ICON MENU ================= */
 .menu-cards {
   display: flex;
@@ -130,56 +154,87 @@ body {
   font-weight: 600;
   text-align: center;
 }
+.menu-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(45,45,228,0.3);
+  border-color: #5c4eff;
+}
 
 /* ================= FILTER ================= */
+/* Container do filtro */
 .filter {
-  background-color: #5d4effef;
+  background-color: #5d4effef; /* azul-roxo */
   color: white;
-  padding: 10px;
-  border-radius: 15px;
-  margin: 20px 50px;
+  padding: 20px 25px;
+  border-radius: 20px;
+  margin: 30px auto;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(45, 45, 228, 0.2);
+  max-width: 900px;
+  transition: box-shadow 0.3s;
+}
+
+.filter:hover {
+  box-shadow: 0 8px 30px rgba(45, 45, 228, 0.35);
 }
 
 .filter p {
-  margin-bottom: 10px;
-  font-weight: 550;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
+/* Inputs */
 .filter-inputs {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .filter input {
   flex: 1;
   min-width: 200px;
-  padding: 10px 10px;
-  border-radius: 10px;
-  border: none;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 2px solid transparent;
   outline: none;
+  font-size: 15px;
+  transition: all 0.3s;
 }
 
+/* Botão de pesquisa */
 .search-btn {
-  background: #fff;
+  background: #2d2de4;
   border: none;
-  border-radius: 20px;
-  padding: 4px;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 25px;
-  transition: background 0.2s;
-}
-
-.search-btn:hover {
-  background: #ddd;
+  font-size: 18px;
+  transition: all 0.3s;
 }
 
 /* ================= TITLE ================= */
 .section-title h2 {
-  text-align: left;
-  color: #5c4eff;
-  margin: 5px 0;
-  font-size: 30px;
+  text-align: center; /* mais centralizado */
+  color: #2d2de4;     /* azul principal */
+  font-size: 32px;
+  font-weight: 700;
+  margin: 15px 0;
+  position: relative;
+}
+
+/* Adicionar ícone decorativo ou seta animada */
+.section-title h2::before {
+  content: "🐾 ";
+  margin-right: 8px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 /* ================= PET CARDS ================= */
@@ -220,6 +275,10 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(45,45,228,0.2);
+}
 
 /* ================= VER MAIS ================= */
 .ver-mais {
@@ -235,21 +294,41 @@ body {
 }
 
 /* ================= BANNER ================= */
-.adopt-banner img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+.adopt-banner .slider-fade {
+  position: relative;
+  overflow: hidden;
   border-radius: 15px;
-  border-color: rgba(173, 79, 236, 0.39);
-  border-style: solid;
-  border-width: 2px;
-  margin: 10px 10px 30px 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  height: 375px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
-.adopt-banner img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 5px 17px rgba(0, 0, 0, 0.2);
+
+.adopt-banner .slider-fade .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 15px;
+}
+
+.adopt-banner .slider-fade .slide.active {
+  opacity: 1;
+}
+.adopt-banner .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.adopt-banner .dot.active {
+  background: #2d2de4;
 }
 /* ================= BLOG ================= */
 .blog-section {
@@ -348,9 +427,21 @@ body {
 .blog-card.expandido .resumo {
   display: block;
 }
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(45,45,228,0.2);
+}
+/* ================= CTA DOAÇÃO ================= */
 [vw] {
   position: fixed;
   right: 10px;
   bottom: 10px;
   z-index: 9999;
+}
+.navbar-links a.active {
+  color: #fff; /* cor do texto do link ativo */
+  background: #2d2de4; /* fundo diferente */
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-weight: bold;
 }

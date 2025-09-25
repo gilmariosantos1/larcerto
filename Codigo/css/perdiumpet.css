@@ -1,0 +1,172 @@
+/* Banner */
+.perdiumpet-hero {
+  background: linear-gradient(135deg, #5c4eff, #2d2de4d7);
+  color: #fff;
+  text-align: center;
+  padding: 70px 20px;
+  border-radius: 350px 50px 350px 50px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.perdiumpet-hero h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.perdiumpet-hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Formulário */
+.perdiumpet-form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.perdiumpet-form fieldset {
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.perdiumpet-form legend {
+  font-weight: bold;
+  color: #2d2de4;
+}
+
+.perdiumpet-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.perdiumpet-form input,
+.perdiumpet-form select,
+.perdiumpet-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.perdiumpet-form textarea {
+  resize: vertical;
+}
+
+.perdiumpet-btn {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #2d2de4;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.perdiumpet-btn:hover {
+  background: #1a1ab3;
+}
+
+/* Grid de pets perdidos */
+.perdiumpet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.pet-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.pet-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.pet-card h3 {
+  color: #2d2de4;
+  margin-bottom: 10px;
+}
+
+/* Modal */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.modal-content h2 {
+  color: #2d2de4;
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-content textarea {
+  resize: vertical;
+}
+
+.modal-content .perdiumpet-btn {
+  margin-top: 15px;
+}
+
+/* Botão de fechar */
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: #000;
+}
+
