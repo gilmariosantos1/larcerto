@@ -36,11 +36,27 @@
         alt="Logo Lar Certo"
         class="register-logo"
       />
-      <h2>Entrar Em Sua Conta</h2>
+      <h2>Crie sua Conta</h2>
       <p class="info-text">
-        Para divulgar ou adotar um animalzinho, você precisa se entrar.
+        Para divulgar ou adotar um animalzinho, você precisa se cadastrar.
       </p>
       <form class="register-form" action="#" method="post">
+        <label for="password">Nome</label>
+        <input
+          type="email"
+          id="e-mail"
+          name="e-mail"
+          placeholder="Seu Nome"
+          required
+        />
+        <label for="password">Sobrenome</label>
+        <input
+          type="email"
+          id="e-mail"
+          name="email"
+          placeholder="Seu Sobrenome"
+          required
+        />
         <label for="email">E-mail</label>
         <input
           type="email"
@@ -59,7 +75,7 @@
           required
         />
 
-        <button type="submit" onclick="enviarMensagem(event)">Entrar</button>
+        <button type="submit" onclick="enviarMensagem(event)">Cadastrar</button>
         <div
           id="mensagem-enviada"
           style="
@@ -74,7 +90,7 @@
             z-index: 9999;
           "
         >
-          Login realizado com sucesso! Redirecionando para a página inicial...
+          Cadastro realizado com sucesso! Redirecionando para a página inicial...
         </div>
         <script>
           function enviarMensagem(event) {
@@ -87,7 +103,7 @@
         </script>
       </form>
       <div class="register-footer">
-        Não tem uma conta? <a href="cadastro.html">Cadastrar</a>
+        Ja tem conta? <a href="login.html">Entrar</a>
       </div>
     </div>
 
