@@ -38,7 +38,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
     <div style="padding: 5px;">Desenvolvedora</div>
     </td>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="blob:https://web.whatsapp.com/82c05cb1-28ea-43ad-9315-329013a5acaf" alt="Carlos Henrique Dos Santos Silva" width="110px">
+    <img src="https://avatars.githubusercontent.com/u/220428501?v=4" alt="Carlos Henrique Dos Santos Silva" width="110px">
     <br>
     <a href="https://github.com/HenriqueDev025" target="_blank">Carlos Henrique Dos Santos Silva</a>
     <div style="padding: 5px;">Desenvolvedor</div>
@@ -68,6 +68,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
 
 
 
