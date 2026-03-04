@@ -26,7 +26,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 - `css/`: Contém os arquivos de folha de estilo da aplicação (ex: `style.css`).
 - `js/`: Contém os scripts utilizados para lógica de front-end.
 - `img/`: Imagens e assets utilizados no site (banners, logos, imagens de pets).
-- `*.html`: Páginas principais da plataforma (`inicio.html`, `adotar.html`, `login.html`, etc.).
+- `html`: Páginas principais da plataforma (`inicio.html`, `adotar.html`, `login.html`, etc.).
 
 ## 🚀 Como Executar o Projeto
 
@@ -37,3 +37,4 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
