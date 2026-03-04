@@ -44,7 +44,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
     <div style="padding: 5px;">Desenvolvedor</div>
 </td>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="blob:https://web.whatsapp.com/da7eb8e1-89a1-45bb-ae69-c3c0960f3491" alt="O" width="110px">
+    <img src="https://avatars.githubusercontent.com/u/220794444?v=4" alt="O" width="110px">
     <br>
     <a href="https://github.com/otavioou" target="_blank">Otavio Oliveira Da Silva</a>
     <div style="padding: 5px;">Desenvolvedor</div>
@@ -68,6 +68,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
 
 
 
