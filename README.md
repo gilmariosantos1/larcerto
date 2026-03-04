@@ -28,7 +28,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 - `img/`: Imagens e assets utilizados no site (banners, logos, imagens de pets).
 - `html`: Páginas principais da plataforma (`inicio.html`, `adotar.html`, `login.html`, etc.).
 
-## 7. Equipe🤝 
+## 🤝 Equipe 
 <table style="border-collapse: collapse; border: 5px solid white;">
 <tr>
 <td align="center" style="border: 5px solid white; padding: 10px;">
@@ -68,5 +68,6 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
 
 
