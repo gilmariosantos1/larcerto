@@ -28,6 +28,37 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 - `img/`: Imagens e assets utilizados no site (banners, logos, imagens de pets).
 - `html`: Páginas principais da plataforma (`inicio.html`, `adotar.html`, `login.html`, etc.).
 
+## 7. Equipe🤝 
+<table style="border-collapse: collapse; border: 5px solid white;">
+<tr>
+<td align="center" style="border: 5px solid white; padding: 10px;">
+    <img src="blob:https://web.whatsapp.com/7a270f5e-f45b-4f60-b5dc-910d65a2a2d0" alt="Julia Rafaela Dos Santos" width="110px">
+    <br>
+    <a href="https://github.com/jhulhia" target="_blank"> Julia Rafaela Dos Santos</a>
+    <div style="padding: 5px;">Desenvolvedora</div>
+    </td>
+<td align="center" style="border: 5px solid white; padding: 10px;">
+    <img src="blob:https://web.whatsapp.com/82c05cb1-28ea-43ad-9315-329013a5acaf" alt="Carlos Henrique Dos Santos Silva" width="110px">
+    <br>
+    <a href="https://github.com/HenriqueDev025" target="_blank">Carlos Henrique Dos Santos Silva</a>
+    <div style="padding: 5px;">Desenvolvedor</div>
+</td>
+<td align="center" style="border: 5px solid white; padding: 10px;">
+    <img src="blob:https://web.whatsapp.com/da7eb8e1-89a1-45bb-ae69-c3c0960f3491" alt="O" width="110px">
+    <br>
+    <a href="https://github.com/otavioou" target="_blank">Otavio Oliveira Da Silva</a>
+    <div style="padding: 5px;">Desenvolvedor</div>
+</td>
+  <td align="center" style="border: 5px solid white; padding: 10px;">
+    <img src="https://avatars.githubusercontent.com/u/197931196?v=4" alt="Phelipe Moura Santos" width="110px">
+    <br>
+    <a href="https://github.com/phesstz" target="_blank">Phelipe Moura Santos</a>
+    <div style="padding: 5px;">Desenvolvedor</div>
+</table>
+<p align="center"> 
+  <img src="#">
+</p>
+
 ## 🚀 Como Executar o Projeto
 
 1. Clone ou baixe este repositório para o seu computador.
@@ -37,4 +68,5 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
 
