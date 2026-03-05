@@ -32,7 +32,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 <table style="border-collapse: collapse; border: 5px solid white;">
 <tr>
 <td align="center" style="border: 5px solid white; padding: 10px;">
-    <img src="blob:https://web.whatsapp.com/7a270f5e-f45b-4f60-b5dc-910d65a2a2d0" alt="Julia Rafaela Dos Santos" width="110px">
+    <img src="https://avatars.githubusercontent.com/u/220428622?v=4" alt="Julia Rafaela Dos Santos" width="110px">
     <br>
     <a href="https://github.com/jhulhia" target="_blank"> Julia Rafaela Dos Santos</a>
     <div style="padding: 5px;">Desenvolvedora</div>
@@ -68,6 +68,7 @@ A estrutura de pastas do projeto é dividida da seguinte forma:
 
 ---
 *Projeto Lar Certo © 2026 - Todos os direitos reservados*
+
 
 
 
