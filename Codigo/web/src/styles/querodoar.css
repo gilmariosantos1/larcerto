@@ -1,0 +1,55 @@
+/* ============== QUERO DOAR ============== */
+.querodoar-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.querodoar-form fieldset {
+  border: 1.5px solid #e0e0ff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.querodoar-form legend {
+  color: #2d2de4;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 0 8px;
+}
+
+.querodoar-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.querodoar-form input,
+.querodoar-form select,
+.querodoar-form textarea {
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: 1.5px solid #ddd;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+
+.querodoar-form input:focus,
+.querodoar-form select:focus,
+.querodoar-form textarea:focus {
+  border-color: #2d2de4;
+}
+
+.querodoar-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}

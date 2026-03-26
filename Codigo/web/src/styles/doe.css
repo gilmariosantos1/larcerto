@@ -1,0 +1,58 @@
+/* ============== DOE ============== */
+.donate-options {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.donate-card {
+  background: #fff;
+  border: 1.5px solid #e0e0ff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 2px 12px rgba(45, 45, 228, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.donate-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(45, 45, 228, 0.2);
+}
+
+.donate-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.donate-card h3 {
+  color: #2d2de4;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.donate-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.donate-card button {
+  background: #2d2de4;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.donate-card button:hover {
+  background: #1a1ab3;
+}
