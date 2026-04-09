@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import MenuCards from '../components/MenuCards'
 import VLibras from '../components/VLibras'
 
 const initialPosts = [
@@ -60,8 +59,6 @@ export default function Blog() {
   return (
     <>
       <Navbar />
-      <MenuCards />
-
       <main className="container">
         <h2 className="section-title">Blog Lar Certo</h2>
         <p style={{ textAlign: 'center', color: '#666', marginBottom: '20px' }}>

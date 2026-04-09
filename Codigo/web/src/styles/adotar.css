@@ -1,59 +1,64 @@
-/* ============== ADOTAR ============== */
+/* ============== ADOTAR (REESTILIZADO SUPREME) ============== */
 .animais-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin-top: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  justify-content: center;
 }
 
-.animal-card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 12px;
+/* Os estilos de .pet-card e derivados agora vêm do global.css para manter a consistência */
+
+.filtro-adotar {
   background: #fff;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 30px;
+  border-radius: 32px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.animal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(45, 45, 228, 0.2);
-}
-
-.animal-card img {
+.filtro-input {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1.5px solid #eee;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s;
 }
 
-.animal-card h3 {
-  color: #2d2de4;
-  margin: 12px 0 4px;
-  font-size: 18px;
+.filtro-input:focus {
+  border-color: #2d2de4;
 }
 
-.animal-card p {
-  font-size: 14px;
-  color: #555;
-  margin: 4px 0;
+.filtro-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.adotar-btn {
-  display: inline-block;
-  margin-top: 12px;
-  background: #2d2de4;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.2s;
-  border: none;
+.filtro-pill {
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: #f8f9ff;
+  border: 1.2px solid #eee;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+  color: #666;
 }
 
-.adotar-btn:hover {
-  background: #1a1ab3;
+.filtro-pill.ativo {
+  background: #2d2de4;
+  color: #fff;
+  border-color: #2d2de4;
+  box-shadow: 0 4px 12px rgba(45, 45, 228, 0.2);
+}
+
+.filtro-pill:hover:not(.ativo) {
+  background: #eee;
 }
