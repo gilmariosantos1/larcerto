@@ -43,7 +43,6 @@ export default function Footer() {
 
       <div className="footer-bottom container">
         <p>© 2025 Lar Certo. Feito com ❤️ para todos os pets.</p>
-        <p>Desenvolvido com tecnologia Supreme.</p>
       </div>
     </footer>
   )
