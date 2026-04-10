@@ -8,6 +8,15 @@ import { useAuth } from '../context/AuthContext'
 import { useNotificacao } from '../components/Notificacao'
 import '../styles/querodoar.css'
 
+const UFs = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']
+
+const WHY_CARDS = [
+  { icon: '🏠', title: 'Lar garantido', text: 'Seu pet será visto por famílias que já estão buscando ativamente por um novo amigo.' },
+  { icon: '💜', title: 'Processo seguro', text: 'Todos os adotantes passam por validação. Você ainda aprova cada solicitação.' },
+  { icon: '🌟', title: 'Gratuito & fácil', text: 'Cadastre em menos de 3 minutos. Sem burocracia, sem custos.' },
+  { icon: '🤝', title: 'Você não está sozinho', text: 'Nossa comunidade acompanha cada adoção até que o pet encontre o lar certo.' },
+]
+
 export default function QuerDoar() {
   const { isLoggedIn, user } = useAuth()
   const navigate = useNavigate()
@@ -23,9 +32,7 @@ export default function QuerDoar() {
   const [concluido, setConcluido] = useState(false)
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/login')
-    }
+    if (!isLoggedIn) navigate('/login')
   }, [isLoggedIn, navigate])
 
   const handleChange = (e) => {
@@ -51,29 +58,15 @@ export default function QuerDoar() {
     if (!form.Estado) return notify('Selecione o estado.', 'error')
 
     setLoading(true)
-
-    // Usando FormData para enviar arquivo + campos de texto
     const formData = new FormData()
-    formData.append('Nome', form.Nome)
-    formData.append('Tipo', form.Tipo)
-    formData.append('Porte', form.Porte)
-    formData.append('Genero', form.Genero)
-    formData.append('Idade', form.Idade)
-    formData.append('Descricao', form.Descricao)
-    formData.append('Cidade', form.Cidade)
-    formData.append('Estado', form.Estado)
-    formData.append('Img', imageFile) // O nome 'Img' deve bater com o upload.single('Img') no backend
+    Object.entries(form).forEach(([k, v]) => formData.append(k, v))
+    formData.append('Img', imageFile)
 
     try {
-      await api.post('/pets', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
+      await api.post('/pets', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
       notify('Pet cadastrado com sucesso!', 'success')
       setConcluido(true)
     } catch (err) {
-      console.error('ERRO AO ENVIAR PET:', err)
       const msg = err.response?.data?.error || 'Erro ao cadastrar pet. Verifique os dados e a foto.'
       notify(msg, 'error')
       setErro(msg)
@@ -82,172 +75,251 @@ export default function QuerDoar() {
     }
   }
 
+  const resetForm = () => {
+    setConcluido(false)
+    setForm({ Nome: '', Tipo: '', Porte: '', Genero: '', Idade: '', Descricao: '', Cidade: '', Estado: '' })
+    setImageFile(null)
+    setImagePreview('')
+    setErro('')
+  }
+
+  const userInitial = user?.Nome?.charAt(0)?.toUpperCase() || '?'
+
   return (
     <>
       <Navbar />
 
-      <section className="hero-banner">
-        <h2>Quero Doar um Pet 🐾</h2>
-        <p>Preencha os dados e escolha uma foto bem bonita para o seu pet!</p>
+      {/* Hero Acolhedor */}
+      <section className="querodoar-hero">
+        <h1>
+          Dar um lar é um ato<br />
+          de <span>puro amor</span>.
+        </h1>
+        <p>
+          Sabemos que não é fácil. Mas você está fazendo a escolha certa — dar ao seu pet
+          uma segunda chance com uma família que vai amá-lo de verdade.
+        </p>
       </section>
 
-      <main className="container" style={{ maxWidth: '750px', margin: '40px auto' }}>
+      <main className="container">
+
+        {/* Por que cadastrar */}
+        <div className="querodoar-why">
+          {WHY_CARDS.map((c) => (
+            <div className="querodoar-why-card" key={c.title}>
+              <div className="icon">{c.icon}</div>
+              <h4>{c.title}</h4>
+              <p>{c.text}</p>
+            </div>
+          ))}
+        </div>
+
         {concluido ? (
-          <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-            <p style={{ fontSize: '64px', marginBottom: '16px' }}>🎉</p>
-            <h2 style={{ color: '#2d2de4', fontSize: '28px', marginBottom: '12px' }}>Compartilhado com sucesso!</h2>
-            <p style={{ color: '#666', marginBottom: '24px' }}>
-              O pet <strong>{form.Nome}</strong> já está na nossa vitrine aguardando um novo lar.
+          <div className="querodoar-success">
+            <span className="success-icon">🎉</span>
+            <h2>
+              <span>{form.Nome}</span> já está na vitrine!
+            </h2>
+            <p>
+              Obrigado por confiar no Lar Certo. O anúncio do {form.Nome} já está visível 
+              para famílias que estão esperando exatamente por ele.
             </p>
-            <button
-              onClick={() => { setConcluido(false); setForm({ Nome: '', Tipo: '', Porte: '', Genero: '', Idade: '', Descricao: '', Cidade: '', Estado: '' }); setImageFile(null); setImagePreview('') }}
-              style={{ padding: '12px 28px', background: '#2d2de4', color: '#fff', border: 'none', borderRadius: '30px', fontWeight: '700', cursor: 'pointer', marginRight: '12px' }}
-            >
-              Cadastrar outro pet
-            </button>
-            <button
-              onClick={() => navigate('/adotar')}
-              style={{ padding: '12px 28px', background: 'transparent', color: '#2d2de4', border: '2px solid #2d2de4', borderRadius: '30px', fontWeight: '700', cursor: 'pointer' }}
-            >
-              Ver pets disponíveis
-            </button>
+            <div className="success-actions">
+              <button className="btn-primary" onClick={resetForm}>
+                🐾 Cadastrar outro pet
+              </button>
+              <button className="btn-outline" onClick={() => navigate('/adotar')}>
+                Ver pets disponíveis
+              </button>
+            </div>
           </div>
         ) : (
-          <form className="querodoar-form" onSubmit={handleSubmit}>
+          <div className="querodoar-layout">
 
-            <div style={{ background: '#f0f4ff', borderRadius: '12px', padding: '16px 20px', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span style={{ fontSize: '32px' }}>👤</span>
-              <div>
-                <strong style={{ color: '#2d2de4' }}>{user?.Nome}</strong>
-                <p style={{ fontSize: '13px', color: '#666', margin: 0 }}>Doador responsável · {user?.Telefone || 'WhatsApp cadastrado'}</p>
-              </div>
-            </div>
-
-            {erro && (
-              <div style={{ color: '#d32f2f', background: '#ffebee', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', fontSize: '14px' }}>
-                ⚠️ {erro}
-              </div>
-            )}
-
-            <fieldset>
-              <legend>Identidade do Pet</legend>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                <div>
-                  <label htmlFor="Nome">Nome do pet *</label>
-                  <input
-                    type="text" id="Nome" name="Nome"
-                    placeholder="Ex: Bolinha"
-                    value={form.Nome} onChange={handleChange} required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="Tipo">Espécie *</label>
-                  <select id="Tipo" name="Tipo" value={form.Tipo} onChange={handleChange} required>
-                    <option value="">Selecione</option>
-                    <option value="cao">🐶 Cachorro</option>
-                    <option value="gato">🐱 Gato</option>
-                    <option value="outro">🐾 Outro</option>
-                  </select>
+            {/* Sidebar */}
+            <aside className="querodoar-sidebar">
+              <div className="user-badge">
+                <div className="user-avatar-big">{userInitial}</div>
+                <div className="user-info">
+                  <h4>{user?.Nome}</h4>
+                  <p>Doador responsável</p>
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px', marginTop: '15px' }}>
-                <div>
-                  <label htmlFor="Porte">Porte</label>
-                  <select id="Porte" name="Porte" value={form.Porte} onChange={handleChange}>
-                    <option value="">Selecione</option>
-                    <option value="P">Pequeno</option>
-                    <option value="M">Médio</option>
-                    <option value="G">Grande</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="Genero">Sexo</label>
-                  <select id="Genero" name="Genero" value={form.Genero} onChange={handleChange}>
-                    <option value="">Selecione</option>
-                    <option value="Macho">Macho</option>
-                    <option value="Femea">Fêmea</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="Idade">Idade aprox.</label>
-                  <input
-                    type="text" id="Idade" name="Idade"
-                    placeholder="Ex: 2 anos"
-                    value={form.Idade} onChange={handleChange}
-                  />
-                </div>
-              </div>
+              <h3>🌟 Dicas para um anúncio incrível</h3>
+              <ul className="querodoar-tips">
+                <li>
+                  <span className="tip-icon">📸</span>
+                  <span>Uma foto clara e iluminada aumenta em 3x as chances de adoção.</span>
+                </li>
+                <li>
+                  <span className="tip-icon">✍️</span>
+                  <span>Descreva a personalidade, não só os dados básicos. Ele late muito? Adora colo?</span>
+                </li>
+                <li>
+                  <span className="tip-icon">💉</span>
+                  <span>Mencione se é vacinado, castrado ou microchipado.</span>
+                </li>
+                <li>
+                  <span className="tip-icon">⏱️</span>
+                  <span>Responda as solicitações rapidamente para não perder famílias interessadas!</span>
+                </li>
+                <li>
+                  <span className="tip-icon">🚫</span>
+                  <span>Nunca cobre pela adoção. Isso é proibido por lei.</span>
+                </li>
+              </ul>
+            </aside>
 
-              <label htmlFor="Descricao" style={{ marginTop: '15px' }}>História e Personalidade</label>
-              <textarea 
-                id="Descricao" name="Descricao" 
-                placeholder="Conte um pouco sobre o temperamento, se é vacinado, se convive bem com outros animais..."
-                value={form.Descricao} onChange={handleChange}
-                style={{ height: '120px', resize: 'vertical' }}
-              />
+            {/* Formulário */}
+            <form className="querodoar-form-main" onSubmit={handleSubmit}>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '15px' }}>
-                <div>
-                  <label htmlFor="Cidade">Cidade *</label>
-                  <input
-                    type="text" id="Cidade" name="Cidade"
-                    placeholder="Ex: São Paulo"
-                    value={form.Cidade} onChange={handleChange} required
-                  />
+              {erro && (
+                <div style={{ color: '#d32f2f', background: '#ffebee', padding: '14px 18px', borderRadius: '12px', marginBottom: '20px', fontSize: '14px', fontWeight: '600' }}>
+                  ⚠️ {erro}
                 </div>
-                <div>
-                  <label htmlFor="Estado">Estado *</label>
-                  <select id="Estado" name="Estado" value={form.Estado} onChange={handleChange} required>
-                    <option value="">UF</option>
-                    {['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'].map(uf => (
-                      <option key={uf} value={uf}>{uf}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </fieldset>
+              )}
 
-            <fieldset style={{ marginTop: '20px' }}>
-              <legend>Foto do Amiguinho</legend>
-              <p style={{ fontSize: '13px', color: '#666', marginBottom: '15px' }}>
-                Escolha uma foto clara e nítida para aumentar as chances de adoção.
-              </p>
-              
-              <div style={{ 
-                border: '2px dashed #ddd', padding: '20px', borderRadius: '15px', textAlign: 'center',
-                background: '#fafafa', cursor: 'pointer', position: 'relative'
-              }}>
-                <input 
-                  type="file" 
-                  accept="image/*" 
-                  onChange={handleFileChange}
-                  style={{ opacity: 0, position: 'absolute', inset: 0, cursor: 'pointer' }}
-                />
-                {!imagePreview ? (
+              {/* Seção 1: Identidade */}
+              <div className="form-section">
+                <div className="form-section-header">
+                  <div className="form-section-icon">🐾</div>
                   <div>
-                    <span style={{ fontSize: '40px' }}>📷</span>
-                    <p style={{ margin: '10px 0 0', fontWeight: '600' }}>Clique para selecionar a foto</p>
-                    <small style={{ color: '#999' }}>JPG, PNG ou WebP (Máx. 5MB)</small>
+                    <h3>Identidade do Pet</h3>
+                    <p>Dados básicos para identificar seu amiguinho</p>
                   </div>
-                ) : (
-                  <div style={{ position: 'relative' }}>
-                    <img 
-                      src={imagePreview} 
-                      alt="Preview" 
-                      style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '10px' }} 
-                    />
-                    <p style={{ marginTop: '5px', fontSize: '12px', color: '#2d2de4' }}>Clique para trocar a foto</p>
-                  </div>
-                )}
-              </div>
-            </fieldset>
+                </div>
 
-            <button type="submit" className="adotar-btn" style={{ width: '100%', marginTop: '30px', padding: '18px' }} disabled={loading}>
-              {loading ? 'Processando upload...' : '🐾 Publicar anúncio de adoção'}
-            </button>
-          </form>
+                <div className="form-grid-2">
+                  <div className="form-group">
+                    <label htmlFor="Nome">Nome do pet *</label>
+                    <input
+                      type="text" id="Nome" name="Nome"
+                      placeholder="Ex: Bolinha, Lola..."
+                      value={form.Nome} onChange={handleChange} required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Tipo">Espécie *</label>
+                    <select id="Tipo" name="Tipo" value={form.Tipo} onChange={handleChange} required>
+                      <option value="">Selecione...</option>
+                      <option value="cao">🐶 Cachorro</option>
+                      <option value="gato">🐱 Gato</option>
+                      <option value="outro">🐾 Outro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-grid-3" style={{ marginTop: '18px' }}>
+                  <div className="form-group">
+                    <label htmlFor="Porte">Porte</label>
+                    <select id="Porte" name="Porte" value={form.Porte} onChange={handleChange}>
+                      <option value="">Selecione</option>
+                      <option value="P">Pequeno</option>
+                      <option value="M">Médio</option>
+                      <option value="G">Grande</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Genero">Sexo</label>
+                    <select id="Genero" name="Genero" value={form.Genero} onChange={handleChange}>
+                      <option value="">Selecione</option>
+                      <option value="Macho">Macho</option>
+                      <option value="Femea">Fêmea</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Idade">Idade aprox.</label>
+                    <input
+                      type="text" id="Idade" name="Idade"
+                      placeholder="Ex: 2 anos"
+                      value={form.Idade} onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Seção 2: Personalidade */}
+              <div className="form-section">
+                <div className="form-section-header">
+                  <div className="form-section-icon">💬</div>
+                  <div>
+                    <h3>História & Personalidade</h3>
+                    <p>Esse é o diferencial! Conte quem ele é de verdade.</p>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="Descricao">Descrição</label>
+                  <textarea
+                    id="Descricao" name="Descricao"
+                    placeholder="Ex: A Lola é uma cadela dócil e carinhosa, adora crianças e convive bem com outros pets. Está vacinada e vermifugada. Precisa de um lar com quintal..."
+                    value={form.Descricao} onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              {/* Seção 3: Localização */}
+              <div className="form-section">
+                <div className="form-section-header">
+                  <div className="form-section-icon">📍</div>
+                  <div>
+                    <h3>Localização</h3>
+                    <p>Onde o pet está atualmente</p>
+                  </div>
+                </div>
+
+                <div className="form-grid-2">
+                  <div className="form-group">
+                    <label htmlFor="Cidade">Cidade *</label>
+                    <input
+                      type="text" id="Cidade" name="Cidade"
+                      placeholder="Ex: São Paulo"
+                      value={form.Cidade} onChange={handleChange} required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Estado">Estado *</label>
+                    <select id="Estado" name="Estado" value={form.Estado} onChange={handleChange} required>
+                      <option value="">Selecione o UF</option>
+                      {UFs.map(uf => <option key={uf} value={uf}>{uf}</option>)}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Seção 4: Foto */}
+              <div className="form-section">
+                <div className="form-section-header">
+                  <div className="form-section-icon">📷</div>
+                  <div>
+                    <h3>Foto do Amiguinho</h3>
+                    <p>Foto clara = mais chances de adoção!</p>
+                  </div>
+                </div>
+
+                <div className="upload-dropzone">
+                  <input type="file" accept="image/*" onChange={handleFileChange} />
+                  {!imagePreview ? (
+                    <>
+                      <div className="upload-icon">🖼️</div>
+                      <h4>Clique para escolher uma foto</h4>
+                      <small>JPG, PNG ou WebP — máximo 5MB</small>
+                    </>
+                  ) : (
+                    <div className="upload-preview">
+                      <img src={imagePreview} alt="Preview do pet" />
+                      <span className="change-label">📸 Clique para trocar a foto</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <button type="submit" className="querodoar-submit-btn" disabled={loading}>
+                {loading ? '⏳ Publicando anúncio...' : '🐾 Publicar anúncio de adoção'}
+              </button>
+            </form>
+          </div>
         )}
       </main>
 

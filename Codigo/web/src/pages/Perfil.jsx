@@ -72,7 +72,7 @@ export default function Perfil() {
   const getInitial = () => (user?.Nome || user?.email || '?').charAt(0).toUpperCase()
   
   const getImgUrl = (path) => {
-    if (!path) return '/img/adotar/placeholder-pet.jpg';
+    if (!path) return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80';
     if (path.startsWith('http')) return path;
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     return `${baseUrl}${path}`;
@@ -213,7 +213,7 @@ export default function Perfil() {
                         src={getImgUrl(pet.Img)}
                         alt={pet.Nome}
                         style={{ width: '100%', height: '140px', objectFit: 'cover' }}
-                        onError={e => { e.target.src = '/img/adotar/placeholder-pet.jpg' }}
+                        onError={e => { e.target.src = 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80' }}
                       />
                       <button 
                         onClick={() => handleExcluirPet(pet.idPet, pet.Nome)}

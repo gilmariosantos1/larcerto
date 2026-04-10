@@ -3,7 +3,6 @@ import { AuthProvider } from './context/AuthContext'
 import Home from './pages/Home'
 import Adotar from './pages/Adotar'
 import Blog from './pages/Blog'
-import Lares from './pages/Lares'
 import Perdi from './pages/Perdi'
 import SobreNos from './pages/SobreNos'
 import Login from './pages/Login'
@@ -29,7 +28,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/adotar" element={<Adotar />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/lares" element={<Lares />} />
           <Route path="/perdi" element={<Perdi />} />
           <Route path="/sobre" element={<SobreNos />} />
           <Route path="/login" element={<Login />} />

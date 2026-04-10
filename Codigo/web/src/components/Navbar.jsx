@@ -65,10 +65,6 @@ export default function Navbar() {
             Doar Pet
             <span className="nav-indicator"></span>
           </NavLink>
-          <NavLink to="/lares" className={({ isActive }) => isActive ? 'active' : ''}>
-            Lares
-            <span className="nav-indicator"></span>
-          </NavLink>
           <NavLink to="/blog" className={({ isActive }) => isActive ? 'active' : ''}>
             Blog
             <span className="nav-indicator"></span>

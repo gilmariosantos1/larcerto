@@ -1,58 +1,347 @@
-/* ============== DOE ============== */
-.donate-options {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 12px;
-}
+/* ============== APOIAR - PREMIUM REDESIGN ============== */
 
-.donate-card {
-  background: #fff;
-  border: 1.5px solid #e0e0ff;
-  border-radius: 16px;
-  padding: 32px 24px;
+/* === Hero === */
+.apoio-hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+  padding: 80px 40px;
   text-align: center;
-  width: 280px;
-  box-shadow: 0 2px 12px rgba(45, 45, 228, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
-.donate-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(45, 45, 228, 0.2);
+.apoio-hero::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  top: -300px;
+  left: -200px;
+  pointer-events: none;
 }
 
-.donate-icon {
-  font-size: 40px;
-  margin-bottom: 16px;
+.apoio-hero::after {
+  content: '❤️';
+  font-size: 300px;
+  position: absolute;
+  bottom: -100px;
+  right: -50px;
+  opacity: 0.05;
+  pointer-events: none;
 }
 
-.donate-card h3 {
-  color: #2d2de4;
+.apoio-hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.apoio-hero h1 span {
+  background: linear-gradient(90deg, #f472b6, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.apoio-hero p {
   font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  position: relative;
 }
 
-.donate-card p {
-  font-size: 14px;
+.apoio-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.apoio-stat-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 15px 25px;
+  text-align: center;
+}
+
+.apoio-stat-item strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.apoio-stat-item span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === Opções de Apoio === */
+.apoio-opcoes-section {
+  padding: 80px 20px;
+  background: #fdfdfd;
+}
+
+.apoio-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.apoio-section-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.apoio-section-header p {
+  font-size: 18px;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.apoio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.apoio-card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.apoio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #2d2de4, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.apoio-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(45, 45, 228, 0.12);
+  border-color: rgba(45, 45, 228, 0.2);
+}
+
+.apoio-card:hover::before {
+  opacity: 1;
+}
+
+.apoio-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 25px;
+  color: #2d2de4;
+  transition: transform 0.3s;
+}
+
+.apoio-card:hover .apoio-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.apoio-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.apoio-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 25px;
+}
+
+.apoio-btn {
+  background: #f8f9ff;
+  color: #2d2de4;
+  border: 1.5px solid #e0e7ff;
+  padding: 14px 24px;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.apoio-card:hover .apoio-btn {
+  background: linear-gradient(135deg, #2d2de4, #5052d4);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(45, 45, 228, 0.25);
+}
+
+.apoio-btn.destaque {
+  background: linear-gradient(135deg, #2d2de4, #5052d4);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 20px rgba(45, 45, 228, 0.25);
+}
+
+.apoio-card:hover .apoio-btn.destaque {
+  transform: scale(1.05);
+}
+
+/* === Seção Transparência === */
+.apoio-transparencia {
+  padding: 80px 20px;
+  background: linear-gradient(150deg, #f8f9ff 0%, #eef0ff 100%);
+}
+
+.transparencia-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.transparencia-text h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.transparencia-text p {
+  font-size: 16px;
   color: #555;
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
-.donate-card button {
-  background: #2d2de4;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
+.transparencia-stats {
+  background: #fff;
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-.donate-card button:hover {
-  background: #1a1ab3;
+.t-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.t-stat-icon {
+  font-size: 32px;
+}
+
+.t-stat-valor {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #2d2de4;
+}
+
+.t-stat-label {
+  font-size: 14px;
+  color: #777;
+  font-weight: 600;
+}
+
+/* === FAQ === */
+.apoio-faq {
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid #eee;
+}
+
+.faq-item h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq-item p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* === Responsividade === */
+@media (max-width: 900px) {
+  .transparencia-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .apoio-hero h1 {
+    font-size: 40px;
+  }
+  .apoio-hero-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .apoio-section-header h2 {
+    font-size: 28px;
+  }
+  .transparencia-stats {
+    grid-template-columns: 1fr;
+  }
 }

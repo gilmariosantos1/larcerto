@@ -3,17 +3,15 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import api from '../services/api'
 import { useAuth } from '../context/AuthContext'
-import ChatBox from '../components/ChatBox'
 
 export default function MinhasSolicitacoes() {
   const [solicitacoes, setSolicitacoes] = useState([])
   const [loading, setLoading] = useState(true)
   const [erro, setErro] = useState('')
-  const [chatAberto, setChatAberto] = useState(null)
   const { user, isLoggedIn } = useAuth()
 
   const getImgUrl = (path) => {
-    if (!path) return '/img/adotar/placeholder-pet.jpg';
+    if (!path) return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80';
     if (path.startsWith('http')) return path;
     const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     return `${baseUrl}${path}`;
@@ -71,7 +69,7 @@ export default function MinhasSolicitacoes() {
                       src={getImgUrl(sol.pet?.Img)} 
                       alt={sol.pet?.Nome} 
                       style={{ width: '100px', height: '100px', borderRadius: '20px', objectFit: 'cover' }}
-                      onError={e => { e.target.src = '/img/adotar/placeholder-pet.jpg' }}
+                      onError={e => { e.target.src = 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80' }}
                     />
                   </div>
 
@@ -96,25 +94,10 @@ export default function MinhasSolicitacoes() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '10px' }}>
-                    <button 
-                      onClick={() => setChatAberto(chatAberto === sol.idDoacao ? null : sol.idDoacao)}
-                      style={{ 
-                        background: '#f0f4ff', color: '#2d2de4', border: 'none',
-                        padding: '10px 15px', borderRadius: '15px', cursor: 'pointer', fontWeight: '800'
-                      }}
-                    >
-                      💬 Falar com o Doador
-                    </button>
-                  </div>
+                  {}
                 </div>
 
-                {/* Renderização condicional do chat inline */}
-                {chatAberto === sol.idDoacao && (
-                  <div style={{ marginTop: '10px' }}>
-                    <ChatBox idDoacao={sol.idDoacao} idRemetente={user.idPessoa} onClose={() => setChatAberto(null)} />
-                  </div>
-                )}
+                {}
               </div>
             ))}
           </div>
