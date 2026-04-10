@@ -53,20 +53,16 @@ const PetController = {
             if (!Nome?.trim()) return res.status(400).json({ error: 'O nome do pet é obrigatório.' });
             if (!Tipo) return res.status(400).json({ error: 'O tipo do animal é obrigatório.' });
             
-            // Tratamento da localização
             let idLocal = null;
             if (Cidade && Estado) {
-                // FindOrCreate garante que não duplicaremos cidades no banco
                 const [local] = await Localizacao.findOrCreate({
                     where: { Cidade, Estado }
                 });
                 idLocal = local.idLocal;
             }
 
-            // Se um arquivo foi enviado pelo multer, salvamos o caminho relativo
-            let caminhoImagem = req.body.Img; // Fallback para link se não houver arquivo
+            let caminhoImagem = req.body.Img; 
             if (req.file) {
-                // No frontend, a URL será algo como /api/uploads/filename.jpg
                 caminhoImagem = `/api/uploads/${req.file.filename}`;
             }
 
@@ -87,7 +83,6 @@ const PetController = {
         } catch (err) {
             console.error('❌ ERRO AO CRIAR PET:', err);
             
-            // Se for erro de validação do Sequelize, retornamos o primeiro erro
             if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
                 return res.status(400).json({ error: err.errors[0].message });
             }
@@ -112,12 +107,11 @@ const PetController = {
             const pet = await Pet.findByPk(req.params.id);
             if (!pet) return res.status(404).json({ error: 'Pet não encontrado.' });
             
-            // Segurança: Apenas o doador que cadastrou o pet pode excluí-lo
-            if (pet.idDoador !== req.pessoaId) {
+            if (pet.idDoador != req.pessoaId) {
+                console.warn(`Tentativa de exclusão negada: Usuário ${req.pessoaId} tentou excluir pet ${pet.idPet} que pertence a ${pet.idDoador}`);
                 return res.status(403).json({ error: 'Você não tem permissão para excluir este pet.' });
             }
 
-            // Se o pet tem uma imagem local, deletamos o arquivo físico
             if (pet.Img && pet.Img.startsWith('/api/uploads/')) {
                 const fileName = pet.Img.split('/').pop();
                 fileHelper.excluirImagem(fileName);
@@ -126,8 +120,11 @@ const PetController = {
             await pet.destroy();
             res.json({ message: 'Pet removido com sucesso e imagem excluída.' });
         } catch (err) {
-            console.error('Erro ao excluir pet:', err);
-            res.status(500).json({ error: 'Erro ao remover pet.' });
+            console.error('❌ ERRO AO EXCLUIR PET:', err);
+            if (err.name === 'SequelizeForeignKeyConstraintError') {
+                return res.status(500).json({ error: 'Não foi possível excluir o pet pois existem registros vinculados a ele.' });
+            }
+            res.status(500).json({ error: 'Erro ao remover pet. Tente novamente.' });
         }
     }
 };

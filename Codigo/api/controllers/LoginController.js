@@ -66,14 +66,12 @@ const LoginController = {
             if (existe)
                 return res.status(400).json({ error: 'Este e-mail já está cadastrado.' });
 
-            // 1. Cria Pessoa
             const pessoa = await Pessoa.create({
                 Nome,
                 Telefone: Telefone || null,
                 Perfil: Perfil || 'Adotante'
             });
 
-            // 2. Cria Login vinculado à Pessoa
             const hashedSenha = await bcrypt.hash(senha, 10);
             const login = await Login.create({
                 email,

@@ -24,7 +24,7 @@ Localizacao.hasMany(Pet,   { foreignKey: 'idLocal', as: 'pets' });
 
 // ── Doacao ↔ Pet ──────────────────────────────────────────────────────────
 Doacao.belongsTo(Pet, { foreignKey: 'idPet', as: 'pet' });
-Pet.hasMany(Doacao,   { foreignKey: 'idPet', as: 'doacoes' });
+Pet.hasMany(Doacao,   { foreignKey: 'idPet', as: 'doacoes', onDelete: 'CASCADE', hooks: true });
 
 // ── Doacao ↔ Pessoa (Adotante) ────────────────────────────────────────────
 // ── Doacao ↔ Pessoa (Adotante) ────────────────────────────────────────────
@@ -33,7 +33,7 @@ Pessoa.hasMany(Doacao,   { foreignKey: 'idAdotante', as: 'adocoes' });
 
 // ── Mensagem ↔ Doacao / Pessoa ────────────────────────────────────────────
 Mensagem.belongsTo(Doacao, { foreignKey: 'idDoacao', as: 'doacao' });
-Doacao.hasMany(Mensagem,   { foreignKey: 'idDoacao', as: 'mensagens' });
+Doacao.hasMany(Mensagem,   { foreignKey: 'idDoacao', as: 'mensagens', onDelete: 'CASCADE', hooks: true });
 
 Mensagem.belongsTo(Pessoa, { foreignKey: 'idRemetente', as: 'remetente' });
 Pessoa.hasMany(Mensagem,   { foreignKey: 'idRemetente', as: 'mensagensEnviadas' });
