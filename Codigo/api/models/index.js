@@ -4,7 +4,6 @@ const Pessoa      = require('./Pessoa');
 const Login       = require('./Login');
 const Pet         = require('./Pet');
 const Doacao      = require('./Adocao');
-const Mensagem    = require('./Mensagem');
 
 // ── Pessoa ↔ Localizacao ──────────────────────────────────────────────────
 Pessoa.belongsTo(Localizacao, { foreignKey: 'idLocal', as: 'localizacao' });
@@ -27,16 +26,8 @@ Doacao.belongsTo(Pet, { foreignKey: 'idPet', as: 'pet' });
 Pet.hasMany(Doacao,   { foreignKey: 'idPet', as: 'doacoes', onDelete: 'CASCADE', hooks: true });
 
 // ── Doacao ↔ Pessoa (Adotante) ────────────────────────────────────────────
-// ── Doacao ↔ Pessoa (Adotante) ────────────────────────────────────────────
 Doacao.belongsTo(Pessoa, { foreignKey: 'idAdotante', as: 'adotante' });
 Pessoa.hasMany(Doacao,   { foreignKey: 'idAdotante', as: 'adocoes' });
 
-// ── Mensagem ↔ Doacao / Pessoa ────────────────────────────────────────────
-Mensagem.belongsTo(Doacao, { foreignKey: 'idDoacao', as: 'doacao' });
-Doacao.hasMany(Mensagem,   { foreignKey: 'idDoacao', as: 'mensagens', onDelete: 'CASCADE', hooks: true });
-
-Mensagem.belongsTo(Pessoa, { foreignKey: 'idRemetente', as: 'remetente' });
-Pessoa.hasMany(Mensagem,   { foreignKey: 'idRemetente', as: 'mensagensEnviadas' });
-
-module.exports = { sequelize, Localizacao, Pessoa, Login, Pet, Doacao, Mensagem };
+module.exports = { sequelize, Localizacao, Pessoa, Login, Pet, Doacao };
 

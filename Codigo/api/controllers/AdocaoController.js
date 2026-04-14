@@ -1,4 +1,4 @@
-const { Doacao, Pet, Pessoa, Login } = require('../models');
+const { Doacao, Pet, Pessoa } = require('../models');
 
 const AdocaoController = {
     async listar(req, res) {
@@ -36,7 +36,6 @@ const AdocaoController = {
                 return res.json([]); // Se não tem pets, não tem solicitações
             }
 
-            // 3. Busca solicitações feitas para esses pets específicos
             const doacoes = await Doacao.findAll({
                 where: { idPet: idsMeusPets },
                 include: [

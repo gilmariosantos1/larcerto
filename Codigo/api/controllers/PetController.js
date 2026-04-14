@@ -1,4 +1,4 @@
-const { Pet, Pessoa, Localizacao, Login } = require('../models');
+const { Pet, Pessoa, Localizacao } = require('../models');
 const fileHelper = require('../utils/fileHelper');
 
 const PetController = {
