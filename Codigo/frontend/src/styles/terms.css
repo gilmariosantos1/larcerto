@@ -1,0 +1,38 @@
+/* ============== TERMS / PRIVACIDADE ============== */
+.terms-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  line-height: 1.8;
+}
+
+.terms-container h1 {
+  color: #2d2de4;
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.terms-container > p:first-of-type {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.terms-container h2 {
+  color: #2d2de4;
+  font-size: 20px;
+  margin: 24px 0 8px;
+}
+
+.terms-container p {
+  color: #444;
+  font-size: 15px;
+}
+
+.terms-container a {
+  color: #2d2de4;
+  text-decoration: underline;
+}
