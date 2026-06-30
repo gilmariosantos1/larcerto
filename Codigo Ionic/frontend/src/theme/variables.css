@@ -1,0 +1,23 @@
+:root {
+  /* LarCerto Brand Colors */
+  --ion-color-primary: #524FE2;
+  --ion-color-primary-rgb: 82,79,226;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #4846c7;
+  --ion-color-primary-tint: #6361e5;
+
+  --ion-color-secondary: #E8EBFD; /* Light blue/purple for cards */
+  --ion-color-secondary-rgb: 232,235,253;
+  --ion-color-secondary-contrast: #1a1a1a;
+  --ion-color-secondary-contrast-rgb: 26,26,26;
+  --ion-color-secondary-shade: #cccef0;
+  --ion-color-secondary-tint: #eaf0fe;
+
+  --ion-background-color: #FAFAFC;
+  --ion-text-color: #1a1a1a;
+
+  --ion-font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

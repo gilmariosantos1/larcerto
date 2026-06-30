@@ -1,0 +1,98 @@
+.footer-container {
+  padding: 32px 24px;
+  background-color: var(--ion-background-color);
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-brand {
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-logo-icon {
+  font-size: 24px;
+  color: var(--ion-color-primary);
+  background: var(--ion-color-secondary);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.footer-logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.footer-description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+  max-width: 280px;
+}
+
+.footer-links-grid {
+  margin-bottom: 32px;
+}
+
+.footer-links-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  text-decoration: none;
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--ion-color-primary);
+}
+
+.footer-link.active {
+  color: var(--ion-color-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: #999;
+}
+
+.scroll-top-btn {
+  --background: var(--ion-color-primary);
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+}
