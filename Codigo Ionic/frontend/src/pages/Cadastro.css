@@ -1,0 +1,205 @@
+.cadastro-page {
+  --ion-background-color: #FAFAFC;
+}
+
+.cadastro-toolbar {
+  --background: var(--ion-color-primary-shade); /* Escuro como no design */
+  --border-width: 0;
+  padding: 8px;
+}
+
+.cadastro-back-btn {
+  --color: white;
+  background: white;
+  --icon-font-size: 20px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  color: #1a1a1a !important; /* ícone preto no fundo branco */
+}
+
+.cadastro-content {
+  --background: var(--ion-background-color);
+}
+
+.cadastro-hero {
+  background: var(--ion-color-primary-shade); /* Azul bem escuro */
+  padding: 20px 24px 80px; /* Padding extra embaixo para o card sobrepor */
+  color: white;
+}
+
+.cadastro-hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+}
+
+.cadastro-hero-subtitle {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 90%;
+}
+
+/* Card Branco Sobreposto */
+.cadastro-form-container {
+  background: white;
+  border-radius: 48px 48px 0 0;
+  padding: 32px 24px 40px;
+  margin-top: -40px; /* Faz o card subir por cima do fundo escuro */
+  position: relative;
+  z-index: 10;
+  min-height: calc(100% - 180px);
+}
+
+.cadastro-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cadastro-logo-icon-wrapper {
+  background: #000080; /* Roxo bem escuro do logo */
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cadastro-logo-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.cadastro-logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.cadastro-form-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.cadastro-form-subtitle {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0 0 32px 0;
+}
+
+/* Campos de Formulário Customizados */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  padding: 0 16px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--ion-color-primary);
+}
+
+.input-icon {
+  font-size: 20px;
+  color: #999;
+  margin-right: 12px;
+}
+
+.custom-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  font-size: 14px;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.custom-input::part(native) {
+  padding-left: 0;
+}
+
+/* Ajustes específicos para o Select */
+.select-wrapper {
+  padding-right: 0;
+}
+
+.custom-select {
+  flex: 1;
+  font-size: 14px;
+  color: #1a1a1a;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  --padding-start: 0;
+}
+
+/* Botão de Envio */
+.btn-submit {
+  --background: #000080; /* Roxo/Azul muito escuro do design */
+  --color: white;
+  --border-radius: 100px;
+  margin: 32px 0 24px;
+  font-weight: 600;
+  font-size: 14px;
+  height: 48px;
+  text-transform: none;
+}
+
+/* Rodapé do Formulário */
+.cadastro-footer {
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer-text {
+  color: #666;
+}
+
+.footer-link {
+  color: #000080;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Validações */
+.input-error-border {
+  border-color: var(--ion-color-danger, #eb445a) !important;
+}
+
+.error-message {
+  color: var(--ion-color-danger, #eb445a);
+  font-size: 11px;
+  margin-top: 6px;
+  display: block;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
