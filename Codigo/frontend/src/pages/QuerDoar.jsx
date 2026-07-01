@@ -85,6 +85,46 @@ export default function QuerDoar() {
 
   const userInitial = user?.Nome?.charAt(0)?.toUpperCase() || '?'
 
+  const [ufs, setUfs] = useState([]);
+  const [cidades, setCidades] = useState([]);
+
+  // 1. Buscar a lista de Estados do seu backend ao carregar a página
+  useEffect(() => {
+    const carregarEstados = async () => {
+      try {
+        
+        const resposta = await fetch('http://localhost:3000/api/estados');
+        const dados = await resposta.json();
+     
+        setUfs(dados);
+      } catch (error) {
+        console.error('Erro ao carregar estados:', error);
+      }
+    };
+    carregarEstados();
+  }, []);
+
+  // 2. Função que será chamada quando o usuário trocar o Estado
+  const handleChangeEstado = async (event) => {
+    const ufSelecionada = event.target.value;
+    
+    handleChange(event); 
+
+    if (ufSelecionada) {
+      try {
+        // Busca as cidades diretamente na API pública do IBGE
+        const respostaCidades = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufSelecionada}/municipios`);
+        const dadosCidades = await respostaCidades.json();
+        setCidades(dadosCidades); 
+      } catch (error) {
+        console.error('Erro ao buscar cidades:', error);
+        setCidades([]);
+      }
+    } else {
+      setCidades([]); 
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -259,34 +299,54 @@ export default function QuerDoar() {
                 </div>
               </div>
 
-              {/* Seção 3: Localização */}
-              <div className="form-section">
-                <div className="form-section-header">
-                  <div className="form-section-icon">📍</div>
-                  <div>
-                    <h3>Localização</h3>
-                    <p>Onde o pet está atualmente</p>
-                  </div>
-                </div>
+{/* Seção 2: Localização */}
+<div className="form-section">
+  <div className="form-section-header">
+    <div className="form-section-icon">📍</div>
+    <h3>Localização</h3>
+    <p>Onde o pet está atualmente?</p>
+  </div>
 
-                <div className="form-grid-2">
-                  <div className="form-group">
-                    <label htmlFor="Cidade">Cidade *</label>
-                    <input
-                      type="text" id="Cidade" name="Cidade"
-                      placeholder="Ex: São Paulo"
-                      value={form.Cidade} onChange={handleChange} required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="Estado">Estado *</label>
-                    <select id="Estado" name="Estado" value={form.Estado} onChange={handleChange} required>
-                      <option value="">Selecione o UF</option>
-                      {UFs.map(uf => <option key={uf} value={uf}>{uf}</option>)}
-                    </select>
-                  </div>
-                </div>
-              </div>
+  <div className="form-grid-2">
+    {/* Campo Cidade */}
+    <div className="form-group">
+      <label htmlFor="Cidade">Cidade</label>
+      <select 
+        id="Cidade" 
+        name="Cidade" 
+        value={form.Cidade} 
+        onChange={handleChange} // Reaproveita o seu handleChange original
+        required
+      >
+        <option value="">Selecione uma cidade</option>
+        {cidades.map((cidade) => (
+          <option key={cidade.id} value={cidade.nome}>
+            {cidade.nome}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Campo Estado */}
+    <div className="form-group">
+      <label htmlFor="Estado">Estado (UF)</label>
+      <select 
+        id="Estado" 
+        name="Estado" 
+        value={form.Estado} 
+        onChange={handleChangeEstado} // Use a nova função criada no Passo 2
+        required
+      >
+        <option value="">Selecione uma UF</option>
+        {ufs.map((uf) => (
+          <option key={uf.sigla} value={uf.sigla}>
+            {uf.sigla} - {uf.nome}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+</div>
 
               {/* Seção 4: Foto */}
               <div className="form-section">
