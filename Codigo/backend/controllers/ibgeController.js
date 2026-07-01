@@ -1,15 +1,12 @@
 // backend/controllers/ibgeController.js
 const axios = require('axios');
-const { Localizacao } = require('../models'); // Importe seu modelo aqui
+const { Localizacao } = require('../models'); 
 
-// Endpoint da API do IBGE
 const URL_IBGE = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados';
 
-// Função para buscar apenas os estados e retornar ao frontend
 exports.buscarEstadosIBGE = async (req, res) => {
     try {
         const response = await axios.get(URL_IBGE);
-        // O IBGE retorna uma array com objetos contendo: id, sigla, nome, regiao
         return res.status(200).json(response.data);
     } catch (error) {
         console.error('Erro ao buscar estados do IBGE:', error.message);
@@ -17,13 +14,11 @@ exports.buscarEstadosIBGE = async (req, res) => {
     }
 };
 
-// Função para popular o banco de dados com os estados
 exports.popularBancoComEstados = async (req, res) => {
     try {
         const response = await axios.get(URL_IBGE);
         const estados = response.data;
 
-        // Itera sobre cada estado vindo da API e insere no banco
         for (const estado of estados) {
             await Localizacao.findOrCreate({
                 where: { Estado: estado.sigla },
