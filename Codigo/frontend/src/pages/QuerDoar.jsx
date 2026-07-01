@@ -88,7 +88,6 @@ export default function QuerDoar() {
   const [ufs, setUfs] = useState([]);
   const [cidades, setCidades] = useState([]);
 
-  // 1. Buscar a lista de Estados do seu backend ao carregar a página
   useEffect(() => {
     const carregarEstados = async () => {
       try {
@@ -104,7 +103,6 @@ export default function QuerDoar() {
     carregarEstados();
   }, []);
 
-  // 2. Função que será chamada quando o usuário trocar o Estado
   const handleChangeEstado = async (event) => {
     const ufSelecionada = event.target.value;
     
@@ -112,7 +110,7 @@ export default function QuerDoar() {
 
     if (ufSelecionada) {
       try {
-        // Busca as cidades diretamente na API pública do IBGE
+
         const respostaCidades = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufSelecionada}/municipios`);
         const dadosCidades = await respostaCidades.json();
         setCidades(dadosCidades); 
