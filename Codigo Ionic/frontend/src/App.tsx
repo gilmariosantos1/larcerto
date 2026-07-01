@@ -2,6 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import Cadastro from './pages/Cadastro';
 import Menu from './components/Menu';
 
 /* Core CSS required for Ionic components to work properly */
@@ -40,6 +41,9 @@ const App: React.FC = () => (
         <IonRouterOutlet id="main-content">
           <Route exact path="/home">
             <Home />
+          </Route>
+          <Route exact path="/cadastro">
+            <Cadastro />
           </Route>
           {/* Mock routes para os itens do Menu e botões */}
           <Route exact path="/adotar">
