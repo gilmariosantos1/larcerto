@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const ibgeRoutes = require('./routes/ibgeRoutes');
 
 // Garante que a pasta de uploads exista
 const uploadsDir = path.join(__dirname, 'uploads');
@@ -38,6 +39,7 @@ app.use('/api/pets', petRoutes);
 app.use('/api/adocoes', adocaoRoutes);
 app.use('/api/pessoas', pessoaRoutes);
 app.use('/api/auth', loginRoutes);
+app.use('/api', ibgeRoutes);
 
 app.get('/', (req, res) => {
     res.json({ message: 'API Lar Certo está online! 🐶', version: '2.0' });
