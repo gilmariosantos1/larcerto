@@ -28,6 +28,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import PetRegistro from './pages/PetRegistro';
 
 setupIonicReact();
 
@@ -45,7 +46,7 @@ const App: React.FC = () => (
             <Home /> {/* Temporariamente renderizando a Home */}
           </Route>
           <Route exact path="/doar">
-            <Home />
+            <PetRegistro /> {/* Renderizando o componente PetRegistro */}
           </Route>
           <Route exact path="/blog">
             <Home />
