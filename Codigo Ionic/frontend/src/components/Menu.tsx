@@ -14,12 +14,9 @@ import { useLocation } from 'react-router-dom';
 import { 
   homeOutline, 
   homeSharp, 
-  searchOutline, 
-  searchSharp, 
-  heartOutline, 
-  heartSharp, 
-  helpCircleOutline, 
-  helpCircleSharp 
+  addCircleOutline, 
+  addCircleSharp,
+  paw
 } from 'ionicons/icons';
 import './Menu.css';
 
@@ -38,22 +35,10 @@ const appPages: AppPage[] = [
     mdIcon: homeSharp
   },
   {
-    title: 'Quero Adotar',
-    url: '/adotar',
-    iosIcon: searchOutline,
-    mdIcon: searchSharp
-  },
-  {
-    title: 'Blog & Notícias',
-    url: '/blog',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
-  },
-  {
-    title: 'Como Ajudar',
-    url: '/ajudar',
-    iosIcon: helpCircleOutline,
-    mdIcon: helpCircleSharp
+    title: 'Cadastrar Pet (Doar)',
+    url: '/doar',
+    iosIcon: addCircleOutline,
+    mdIcon: addCircleSharp
   }
 ];
 
@@ -61,23 +46,31 @@ const Menu: React.FC = () => {
   const location = useLocation();
 
   return (
-    <IonMenu contentId="main-content" type="overlay">
+    <IonMenu contentId="main-content" type="overlay" className="custom-menu">
       <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Menu LarCerto</IonListHeader>
-          <IonNote>adoção responsável</IonNote>
+        <div className="menu-header-bg">
+          <div className="menu-logo-wrapper">
+            <IonIcon icon={paw} className="menu-logo-icon" />
+          </div>
+          <IonListHeader className="menu-title">LarCerto</IonListHeader>
+          <IonNote className="menu-subtitle">Adoção responsável & conexão</IonNote>
+        </div>
+
+        <IonList id="inbox-list" className="menu-list-items">
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem 
-                  className={location.pathname === appPage.url ? 'selected' : ''} 
+                  className={`menu-item ${location.pathname === appPage.url ? 'selected' : ''}`}
                   routerLink={appPage.url} 
                   routerDirection="none" 
                   lines="none" 
                   detail={false}
                 >
-                  <IonIcon aria-hidden="true" slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
+                  <div className="menu-item-icon-wrapper" slot="start">
+                    <IonIcon aria-hidden="true" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                  </div>
+                  <IonLabel className="menu-item-label">{appPage.title}</IonLabel>
                 </IonItem>
               </IonMenuToggle>
             );

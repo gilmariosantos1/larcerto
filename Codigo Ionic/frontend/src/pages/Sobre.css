@@ -1,0 +1,100 @@
+.sobre-page {
+  --ion-background-color: #f8f9fa; /* Fundo cinza bem claro */
+}
+
+.sobre-content {
+  --background: var(--ion-background-color);
+}
+
+.sobre-container {
+  padding: 32px 20px 40px;
+}
+
+/* Cabeçalho "Sobre Lar Certo" */
+.sobre-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sobre-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1c3599; /* Azul escuro */
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.sobre-title-underline {
+  width: 48px;
+  height: 4px;
+  background-color: #1c3599;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Cards */
+.sobre-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.sobre-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.sobre-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1c3599;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.sobre-card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+/* Seção de Chamada para Ação (CTA) */
+.sobre-cta {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sobre-cta-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1c3599;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+.btn-apoiar {
+  --background: #1c3599;
+  --color: white;
+  --border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  height: 50px;
+  margin-bottom: 12px;
+  text-transform: none;
+}
+
+.btn-adotar-outline {
+  --border-color: #1c3599;
+  --color: #1c3599;
+  --border-width: 1.5px;
+  --border-radius: 100px;
+  font-weight: 700;
+  font-size: 15px;
+  height: 50px;
+  margin: 0;
+  text-transform: none;
+}
