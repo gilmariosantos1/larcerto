@@ -30,19 +30,19 @@ const Footer: React.FC = () => {
           <IonCol size="6">
             <h4 className="footer-links-title">PLATAFORMA</h4>
             <ul className="footer-links-list">
-              <li><a href="#" className="footer-link active">Início</a></li>
-              <li><a href="#" className="footer-link">Quero Adotar</a></li>
-              <li><a href="#" className="footer-link">Blog & Notícias</a></li>
-              <li><a href="#" className="footer-link">Como Ajudar</a></li>
+              <li><a href="/home" className="footer-link active">Início</a></li>
+              <li><a href="/adotar" className="footer-link">Quero Adotar</a></li>
+              <li><a href="/blog" className="footer-link">Blog & Notícias</a></li>
+              <li><a href="/ajudar" className="footer-link">Como Ajudar</a></li>
             </ul>
           </IonCol>
           <IonCol size="6">
             <h4 className="footer-links-title">SUPORTE</h4>
             <ul className="footer-links-list">
               <li><a href="#" className="footer-link">Fale Conosco</a></li>
-              <li><a href="#" className="footer-link">Privacidade</a></li>
+              <li><a href="/privacidade" className="footer-link">Privacidade</a></li>
               <li><a href="#" className="footer-link">Termos de Uso</a></li>
-              <li><a href="#" className="footer-link">Sobre Nós</a></li>
+              <li><a href="/sobre" className="footer-link">Sobre Nós</a></li>
             </ul>
           </IonCol>
         </IonRow>
