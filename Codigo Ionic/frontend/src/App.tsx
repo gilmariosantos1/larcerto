@@ -6,6 +6,8 @@ import Cadastro from './pages/Cadastro';
 import Privacidade from './pages/Privacidade';
 import Sobre from './pages/Sobre';
 import Menu from './components/Menu';
+import Apoio from './pages/Apoio';
+import Blog from './pages/blog';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -61,10 +63,10 @@ const App: React.FC = () => (
             <PetRegistro /> {/* Renderizando o componente PetRegistro */}
           </Route>
           <Route exact path="/blog">
-            <Home />
+            <Blog />
           </Route>
           <Route exact path="/ajudar">
-            <Home />
+            <Apoio />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
