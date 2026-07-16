@@ -16,7 +16,11 @@ import {
   homeSharp, 
   addCircleOutline, 
   addCircleSharp,
-  paw
+  paw,
+  heartOutline,
+  heartSharp,
+  newspaperOutline,
+  newspaperSharp
 } from 'ionicons/icons';
 import './Menu.css';
 
@@ -39,6 +43,18 @@ const appPages: AppPage[] = [
     url: '/doar',
     iosIcon: addCircleOutline,
     mdIcon: addCircleSharp
+  },
+  {
+    title: 'Apoiar',
+    url: '/ajudar',
+    iosIcon: heartOutline,
+    mdIcon: heartSharp
+  },
+  {
+    title: 'Blog',
+    url: '/blog',
+    iosIcon: newspaperOutline,
+    mdIcon: newspaperSharp
   }
 ];
 
