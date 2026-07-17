@@ -8,6 +8,8 @@ import Sobre from './pages/Sobre';
 import Menu from './components/Menu';
 import Apoio from './pages/Apoio';
 import Blog from './pages/blog';
+import Contato from './pages/Contato';
+import Adotar from './pages/Adotar';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -55,9 +57,8 @@ const App: React.FC = () => (
           <Route exact path="/sobre">
             <Sobre />
           </Route>
-          {/* Mock routes para os itens do Menu e botões */}
           <Route exact path="/adotar">
-            <Home /> {/* Temporariamente renderizando a Home */}
+            <Adotar />
           </Route>
           <Route exact path="/doar">
             <PetRegistro /> {/* Renderizando o componente PetRegistro */}
@@ -67,6 +68,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/ajudar">
             <Apoio />
+          </Route>
+          <Route exact path="/contato">
+            <Contato />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
