@@ -1,0 +1,116 @@
+.adotar-page {
+  --ion-background-color: #fafafa;
+}
+
+.adotar-content::part(background) {
+  background: #fafafa;
+}
+
+.adotar-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.filtros-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  margin: 0 0 24px 0;
+  padding: 24px;
+}
+
+.busca-input {
+  --background: #f4f6fb;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 12px;
+  border: 1px solid #e0e5f2;
+  border-radius: 12px;
+  min-height: 52px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  color: #333;
+}
+
+.filtro-grupo {
+  margin-bottom: 24px;
+}
+
+.filtro-grupo:last-child {
+  margin-bottom: 0;
+}
+
+.filtro-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-active, .chip-outline {
+  margin: 0;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 0 16px;
+  height: 40px;
+}
+
+.chip-active {
+  --background: var(--ion-color-primary, #4A47F5);
+  --color: white;
+  border: 1px solid var(--ion-color-primary, #4A47F5);
+}
+
+.chip-outline {
+  --background: white;
+  --color: #555;
+  border: 1px solid #ddd;
+}
+
+.resultados-header {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.resultados-numero {
+  color: var(--ion-color-primary, #4A47F5);
+  font-size: 24px;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 20px;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  margin-bottom: 40px;
+}
+
+.empty-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 12px 0;
+}
+
+.empty-message {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 340px;
+}

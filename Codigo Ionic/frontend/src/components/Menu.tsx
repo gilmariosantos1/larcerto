@@ -20,7 +20,9 @@ import {
   heartOutline,
   heartSharp,
   newspaperOutline,
-  newspaperSharp
+  newspaperSharp,
+  personAddOutline,
+  personAddSharp
 } from 'ionicons/icons';
 import './Menu.css';
 
@@ -55,6 +57,12 @@ const appPages: AppPage[] = [
     url: '/blog',
     iosIcon: newspaperOutline,
     mdIcon: newspaperSharp
+  },
+  {
+    title: 'Cadastro',
+    url: '/cadastro',
+    iosIcon: personAddOutline,
+    mdIcon: personAddSharp
   }
 ];
 

@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           <IonCol size="6">
             <h4 className="footer-links-title">SUPORTE</h4>
             <ul className="footer-links-list">
-              <li><a href="#" className="footer-link">Fale Conosco</a></li>
+              <li><a href="/contato" className="footer-link">Fale Conosco</a></li>
               <li><a href="/privacidade" className="footer-link">Privacidade</a></li>
               <li><a href="#" className="footer-link">Termos de Uso</a></li>
               <li><a href="/sobre" className="footer-link">Sobre Nós</a></li>

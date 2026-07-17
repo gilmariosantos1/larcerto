@@ -32,6 +32,7 @@ const Blog: React.FC = () => {
           </IonAvatar>
         </IonToolbar>
       </IonHeader>
+    <Footer />
     </IonPage>
   );
 };
