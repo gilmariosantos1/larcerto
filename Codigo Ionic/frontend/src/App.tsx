@@ -73,11 +73,11 @@ const App: React.FC = () => (
           <Route exact path="/contato">
             <Contato />
           </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
+          <Route exact path="/LoginPage">
+            <LoginPage />
           </Route>
           <Route exact path="/">
-            <Redirect to="/LoginPage"/>
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
       </IonSplitPane>
