@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonPage, 
-  IonToolbar, 
-  IonButtons, 
-  IonMenuButton, 
-  IonIcon, 
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonToolbar,
+  IonButtons,
+  IonMenuButton,
+  IonIcon,
   IonAvatar,
   IonButton,
   IonCard,
@@ -14,13 +14,13 @@ import {
   IonRow,
   IonCol
 } from '@ionic/react';
-import { 
-  paw, 
-  searchOutline, 
-  heart, 
-  people, 
-  closeCircleOutline, 
-  notificationsOutline 
+import {
+  paw,
+  searchOutline,
+  heart,
+  people,
+  closeCircleOutline,
+  notificationsOutline
 } from 'ionicons/icons';
 import Footer from '../components/Footer';
 import './Home.css';
@@ -33,15 +33,18 @@ const Home: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          
+
           <div className="header-brand" slot="start">
             <IonIcon icon={paw} className="header-logo-icon" />
             <span className="header-logo-text">LarCerto</span>
           </div>
 
-          <IonAvatar slot="end" className="header-avatar">
-            <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
-          </IonAvatar>
+          <IonButton routerLink="/LoginPage" slot="end" fill="clear" className="header-profile-button">
+            <IonAvatar slot="end" className="header-avatar">
+              <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
+            </IonAvatar>
+          </IonButton>
+
         </IonToolbar>
       </IonHeader>
 
@@ -50,11 +53,11 @@ const Home: React.FC = () => {
           {/* Hero Section */}
           <IonCard className="hero-card">
             <div className="hero-content">
-              <h1 className="hero-title">Encontre<br/>sua melhor<br/>companhia.</h1>
+              <h1 className="hero-title">Encontre<br />sua melhor<br />companhia.</h1>
               <p className="hero-subtitle">
                 Conectando pets que precisam de um lar com pessoas cheias de amor para dar.
               </p>
-              
+
               <div className="hero-buttons">
                 {/* Exemplo de Navegação: O atributo routerLink faz a transição de tela */}
                 <IonButton expand="block" className="btn-adotar" routerLink="/adotar">
@@ -73,9 +76,9 @@ const Home: React.FC = () => {
           <div className="stats-section">
             <div className="stats-header">
               <IonIcon icon={heart} className="stats-heart-icon" />
-              <h2 className="stats-title">Juntos fazemos a<br/>diferença</h2>
+              <h2 className="stats-title">Juntos fazemos a<br />diferença</h2>
             </div>
-            
+
             <IonGrid className="ion-no-padding">
               <IonRow className="ion-justify-content-between">
                 <IonCol size="5.8">
@@ -102,13 +105,13 @@ const Home: React.FC = () => {
               <IonIcon icon={paw} className="pets-title-icon" />
               <h2 className="pets-title">Pets Disponíveis</h2>
             </div>
-            
+
             <IonCard className="empty-state-card">
               <div className="empty-state-icon-container">
                 <IonIcon icon={searchOutline} className="empty-search-icon" />
                 <IonIcon icon={closeCircleOutline} className="empty-close-icon" />
               </div>
-              <h3 className="empty-state-title">Nenhum pet<br/>encontrado</h3>
+              <h3 className="empty-state-title">Nenhum pet<br />encontrado</h3>
               <p className="empty-state-message">
                 No momento não temos pets disponíveis com os filtros selecionados, mas novos amigos chegam todos os dias.
               </p>
