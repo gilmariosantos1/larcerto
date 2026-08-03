@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
     IonPage,
     IonHeader,
@@ -19,6 +20,7 @@ import {
     IonSelectOption,
     IonTextarea,
     IonIcon,
+    IonToast,
 } from '@ionic/react';
 import {
     pawOutline,
@@ -31,6 +33,7 @@ import {
 import './PetRegistro.css';
 
 const PetRegistro: React.FC = () => {
+    const history = useHistory();
     const [name, setName] = useState('');
     const [sex, setSex] = useState('');
     const [age, setAge] = useState('');
@@ -41,27 +44,78 @@ const PetRegistro: React.FC = () => {
     const [city, setCity] = useState('');
     const [neighborhood, setNeighborhood] = useState('');
     const [photoName, setPhotoName] = useState('Nenhuma foto selecionada');
+    const [photoFile, setPhotoFile] = useState<File | null>(null);
+
+    const [showToast, setShowToast] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
+    const [toastColor, setToastColor] = useState<'success' | 'danger'>('success');
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            history.replace('/login');
+        }
+    }, [history]);
 
     const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files && event.target.files[0];
         if (file) {
             setPhotoName(file.name);
+            setPhotoFile(file);
         }
     };
 
-    const handleSubmit = () => {
-        console.log({
-            name,
-            sex,
-            age,
-            size,
-            breed,
-            story,
-            state,
-            city,
-            neighborhood,
-            photoName,
-        });
+    const handleSubmit = async () => {
+        if (!name) {
+            setToastColor('danger');
+            setToastMessage('O nome do pet é obrigatório!');
+            setShowToast(true);
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('Nome', name);
+        formData.append('Genero', sex);
+        formData.append('Idade', age);
+        formData.append('Porte', size);
+        formData.append('Tipo', 'cao');
+        formData.append('Descricao', story);
+        formData.append('Estado', state);
+        formData.append('Cidade', city);
+        if (photoFile) {
+            formData.append('Img', photoFile);
+        }
+
+        const token = localStorage.getItem('token') || '';
+
+        try {
+            const response = await fetch('http://localhost:3001/api/pets', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            });
+
+            if (!response.ok) {
+                setToastColor('danger');
+                setToastMessage('Erro ao cadastrar pet.');
+                setShowToast(true);
+                return;
+            }
+
+            setToastColor('success');
+            setToastMessage('Pet cadastrado com sucesso!');
+            setShowToast(true);
+            setTimeout(() => {
+                history.push('/adotar');
+            }, 2000);
+
+        } catch (erro) {
+            setToastColor('danger');
+            setToastMessage('Erro de conexão ao servidor.');
+            setShowToast(true);
+        }
     };
 
     return (
@@ -179,9 +233,9 @@ const PetRegistro: React.FC = () => {
                                             placeholder="Selecione"
                                             onIonChange={(e) => setSize(e.detail.value!)}
                                         >
-                                            <IonSelectOption value="pequeno">Pequeno</IonSelectOption>
-                                            <IonSelectOption value="medio">Médio</IonSelectOption>
-                                            <IonSelectOption value="grande">Grande</IonSelectOption>
+                                            <IonSelectOption value="P">Pequeno</IonSelectOption>
+                                            <IonSelectOption value="M">Médio</IonSelectOption>
+                                            <IonSelectOption value="G">Grande</IonSelectOption>
                                         </IonSelect>
                                     </IonItem>
                                 </IonCol>
@@ -289,10 +343,19 @@ const PetRegistro: React.FC = () => {
 
                     <div className="register-footer">
                         <IonButton expand="block" className="btn-next" onClick={handleSubmit}>
-                            Próximo cadastro
+                            Cadastrar Pet
                         </IonButton>
                     </div>
                 </div>
+
+                <IonToast
+                    isOpen={showToast}
+                    onDidDismiss={() => setShowToast(false)}
+                    message={toastMessage}
+                    duration={2000}
+                    position="bottom"
+                    color={toastColor}
+                />
             </IonContent>
         </IonPage>
     );

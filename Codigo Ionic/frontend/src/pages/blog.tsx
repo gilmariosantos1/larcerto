@@ -7,13 +7,15 @@ import {
   IonButtons,
   IonMenuButton,
   IonIcon,
-  IonAvatar
+  IonAvatar,
+  IonButton
 } from '@ionic/react';
 import { paw } from 'ionicons/icons';
 import Footer from '../components/Footer';
 import './blog.css';
 
 const Blog: React.FC = () => {
+  const isLoggedIn = !!localStorage.getItem('token');
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
@@ -27,12 +29,20 @@ const Blog: React.FC = () => {
             <span className="header-logo-text">LarCerto</span>
           </div>
 
-          <IonAvatar slot="end" className="header-avatar">
-            <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
-          </IonAvatar>
+          {isLoggedIn ? (
+            <IonAvatar slot="end" className="header-avatar">
+              <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
+            </IonAvatar>
+          ) : (
+            <IonButton slot="end" fill="clear" routerLink="/login" style={{ '--color': 'var(--ion-color-primary)', fontWeight: 'bold' }}>
+              Entrar
+            </IonButton>
+          )}
         </IonToolbar>
       </IonHeader>
-    <Footer />
+      <IonContent>
+        <Footer />
+      </IonContent>
     </IonPage>
   );
 };

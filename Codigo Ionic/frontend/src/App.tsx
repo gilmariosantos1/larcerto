@@ -61,6 +61,9 @@ const App: React.FC = () => (
           <Route exact path="/adotar">
             <Adotar />
           </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
           <Route exact path="/doar">
             <PetRegistro /> {/* Renderizando o componente PetRegistro */}
           </Route>
@@ -72,9 +75,6 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/contato">
             <Contato />
-          </Route>
-          <Route exact path="/LoginPage">
-            <LoginPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
