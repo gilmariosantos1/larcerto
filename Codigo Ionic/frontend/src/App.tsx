@@ -10,6 +10,7 @@ import Apoio from './pages/Apoio';
 import Blog from './pages/blog';
 import Contato from './pages/Contato';
 import Adotar from './pages/Adotar';
+import LoginPage from './pages/LoginPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -71,6 +72,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/contato">
             <Contato />
+          </Route>
+          <Route exact path="/LoginPage">
+            <LoginPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
