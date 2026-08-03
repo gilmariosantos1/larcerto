@@ -1,0 +1,30 @@
+const jwt = require('jsonwebtoken');
+
+const authMiddleware = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        return res.status(401).json({ error: 'Token não fornecido.' });
+    }
+
+    const parts = authHeader.split(' ');
+    if (parts.length !== 2) {
+        return res.status(401).json({ error: 'Erro de formatação do token.' });
+    }
+
+    const [scheme, token] = parts;
+    if (!/^Bearer$/i.test(scheme)) {
+        return res.status(401).json({ error: 'Token mal formatado.' });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET || 'secret', (err, decoded) => {
+        if (err) return res.status(401).json({ error: 'Token inválido.' });
+
+        req.userId = decoded.id; 
+        req.pessoaId = decoded.idPessoa;
+        req.userPerfil = decoded.perfil;
+        
+        return next();
+    });
+};
+
+module.exports = authMiddleware;
