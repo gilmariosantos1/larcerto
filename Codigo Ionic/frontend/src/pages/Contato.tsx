@@ -21,6 +21,7 @@ import Footer from '../components/Footer';
 import './Contato.css';
 
 const Contato: React.FC = () => {
+  const isLoggedIn = !!localStorage.getItem('token');
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
@@ -44,9 +45,15 @@ const Contato: React.FC = () => {
             <span className="header-logo-text">LarCerto</span>
           </div>
 
-          <IonAvatar slot="end" className="header-avatar">
-            <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
-          </IonAvatar>
+          {isLoggedIn ? (
+            <IonAvatar slot="end" className="header-avatar">
+              <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
+            </IonAvatar>
+          ) : (
+            <IonButton slot="end" fill="clear" routerLink="/login" style={{ '--color': 'var(--ion-color-primary)', fontWeight: 'bold' }}>
+              Entrar
+            </IonButton>
+          )}
         </IonToolbar>
       </IonHeader>
 

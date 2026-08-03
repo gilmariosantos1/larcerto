@@ -6,6 +6,7 @@ import {
   IonInput,
   IonButton,
   useIonRouter,
+  IonToast,
 } from '@ionic/react';
 import { arrowBack, mailOutline, lockClosedOutline, homeOutline } from 'ionicons/icons';
 import './LoginPage.css';
@@ -15,6 +16,9 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastColor, setToastColor] = useState<'success' | 'danger'>('success');
 
   const handleVoltar = () => {
     router.goBack();
@@ -24,8 +28,29 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      // TODO: integrar com o serviço de autenticação real
-      console.log('Login:', { email, senha });
+      const response = await fetch('http://localhost:3001/api/auth/logar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setToastColor('danger');
+        setToastMessage(data.error || 'Erro ao realizar login.');
+        setShowToast(true);
+        return;
+      }
+      localStorage.setItem('token', data.token);
+      setToastColor('success');
+      setToastMessage('Login realizado com sucesso!');
+      setShowToast(true);
+      setTimeout(() => {
+        router.push('/home', 'root', 'replace');
+      }, 1000);
+    } catch (err) {
+      setToastColor('danger');
+      setToastMessage('Erro de conexão ao servidor.');
+      setShowToast(true);
     } finally {
       setLoading(false);
     }
@@ -117,7 +142,7 @@ const LoginPage: React.FC = () => {
                 </IonButton>
 
                 <p className="signup-text">
-                  Não tem uma conta? <a href="/criar-conta">Criar agora</a>
+                  Não tem uma conta? <a href="/cadastro">Cadastro</a>
                 </p>
               </form>
 
@@ -125,6 +150,14 @@ const LoginPage: React.FC = () => {
           </div>
 
         </div>
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message={toastMessage}
+          duration={2000}
+          position="bottom"
+          color={toastColor}
+        />
       </IonContent>
     </IonPage>
   );

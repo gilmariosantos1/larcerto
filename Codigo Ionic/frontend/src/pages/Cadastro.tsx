@@ -40,6 +40,7 @@ const Cadastro: React.FC = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [toastColor, setToastColor] = useState<'success' | 'danger'>('success');
 
   // Máscara para telefone/WhatsApp
   const handlePhoneInput = (ev: any) => {
@@ -96,14 +97,51 @@ const Cadastro: React.FC = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      setToastMessage('Conta criada com sucesso! Redirecionando...');
+    if (!validateForm()) return;
+
+    try {
+      const mappedRole = role.charAt(0).toUpperCase() + role.slice(1);
+      const response = await fetch('http://localhost:3001/api/auth/registrar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Nome: name, email, Telefone: phone, Perfil: mappedRole, senha: password })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setToastColor('danger');
+        setToastMessage(data.error || 'Erro ao criar conta.');
+        setShowToast(true);
+        return;
+      }
+
+      // Login automático após cadastro
+      try {
+        const loginResponse = await fetch('http://localhost:3001/api/auth/logar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha: password })
+        });
+        const loginData = await loginResponse.json();
+        if (loginResponse.ok && loginData.token) {
+          localStorage.setItem('token', loginData.token);
+        }
+      } catch (_) {
+        // Login automático falhou, usuário pode entrar manualmente
+      }
+
+      setToastColor('success');
+      setToastMessage('Conta criada com sucesso! Bem-vindo(a)!');
       setShowToast(true);
-      setTimeout(() => {
-        history.push('/home');
-      }, 2000);
+      setTimeout(() => history.push('/home'), 1500);
+
+    } catch (erro) {
+      setToastColor('danger');
+      setToastMessage('Não foi possível conectar ao servidor. Tente novamente.');
+      setShowToast(true);
     }
   };
 
@@ -202,7 +240,6 @@ const Cadastro: React.FC = () => {
                 >
                   <IonSelectOption value="adotante">Adotante — quero adotar um pet</IonSelectOption>
                   <IonSelectOption value="doador">Doador — quero doar um pet</IonSelectOption>
-                  <IonSelectOption value="abrigo">Abrigo — represento uma ONG</IonSelectOption>
                 </IonSelect>
               </div>
             </div>
@@ -249,7 +286,7 @@ const Cadastro: React.FC = () => {
 
             <div className="cadastro-footer">
               <span className="footer-text">Já possui uma conta? </span>
-              <a href="#" className="footer-link">Acessar agora</a>
+              <a href="/login" className="footer-link">Acessar agora</a>
             </div>
           </form>
         </div>
@@ -260,7 +297,7 @@ const Cadastro: React.FC = () => {
           message={toastMessage}
           duration={2000}
           position="bottom"
-          color="success"
+          color={toastColor}
         />
       </IonContent>
     </IonPage>
