@@ -61,7 +61,6 @@ const LoginPage: React.FC = () => {
       <IonContent fullscreen scrollY={false} className="login-content">
         <div className="login-wrapper">
 
-          {/* Painel esquerdo - imagem/branding */}
           <div className="login-hero">
             <button
               type="button"
@@ -83,7 +82,6 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Painel direito - formulário */}
           <div className="login-form-panel">
             <div className="login-form-inner">
 

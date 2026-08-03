@@ -70,7 +70,6 @@ const Home: React.FC = () => {
 
       <IonContent fullscreen className="home-content">
         <div className="home-container">
-          {/* Hero Section */}
           <IonCard className="hero-card">
             <div className="hero-content">
               <h1 className="hero-title">Encontre<br/>sua melhor<br/>companhia.</h1>
@@ -79,7 +78,6 @@ const Home: React.FC = () => {
               </p>
               
               <div className="hero-buttons">
-                {/* Exemplo de Navegação: O atributo routerLink faz a transição de tela */}
                 <IonButton expand="block" className="btn-adotar" routerLink="/adotar">
                   <IonIcon slot="start" icon={searchOutline} />
                   Quero Adotar
@@ -92,7 +90,6 @@ const Home: React.FC = () => {
             </div>
           </IonCard>
 
-          {/* Stats Section */}
           <div className="stats-section">
             <div className="stats-header">
               <IonIcon icon={heart} className="stats-heart-icon" />
@@ -119,7 +116,6 @@ const Home: React.FC = () => {
             </IonGrid>
           </div>
 
-          {/* Pets List / Empty State */}
           <div className="pets-section">
             <div className="pets-header">
               <IonIcon icon={paw} className="pets-title-icon" />

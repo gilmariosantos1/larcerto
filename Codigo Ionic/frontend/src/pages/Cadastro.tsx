@@ -36,13 +36,11 @@ const Cadastro: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Estado de Erros e Feedback
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastColor, setToastColor] = useState<'success' | 'danger'>('success');
 
-  // Máscara para telefone/WhatsApp
   const handlePhoneInput = (ev: any) => {
     const value = ev.target.value || '';
     const onlyNums = value.replace(/\D/g, '');
