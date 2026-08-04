@@ -15,7 +15,6 @@ import { paw } from "ionicons/icons";
 import "./blog.css";
 
 import { IonContent, IonIcon, IonPage } from "@ionic/react";
-
 import { searchOutline } from "ionicons/icons";
 
 const Blog: React.FC = () => {
@@ -79,35 +78,29 @@ const Blog: React.FC = () => {
 
   return (
     <IonPage>
-<<<<<<< Updated upstream
-      <IonContent fullscreen>...
-
+      <IonContent fullscreen>
         <IonHeader className="ion-no-border">
           <IonToolbar className="custom-toolbar">
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-=======
-      <IonContent fullscreen>
-      <IonHeader className="ion-no-border">
-        <IonToolbar className="custom-toolbar">
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
->>>>>>> Stashed changes
 
             <div className="header-brand" slot="start">
               <IonIcon icon={paw} className="header-logo-icon" />
               <span className="header-logo-text">LarCerto</span>
             </div>
 
-<<<<<<< Updated upstream
             {isLoggedIn ? (
               <IonAvatar slot="end" className="header-avatar">
                 <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
               </IonAvatar>
             ) : (
-              <IonButton slot="end" fill="clear" routerLink="/login" style={{ '--color': 'var(--ion-color-primary)', fontWeight: 'bold' }}>
+              <IonButton
+                slot="end"
+                fill="clear"
+                routerLink="/login"
+                style={{ "--color": "var(--ion-color-primary)", fontWeight: "bold" }}
+              >
                 Entrar
               </IonButton>
             )}
@@ -115,213 +108,57 @@ const Blog: React.FC = () => {
         </IonHeader>
 
         <main>
-
-          <section
-            id="inicio"
-            className="hero"
-          >
-
+          <section id="inicio" className="hero">
             <div className="hero-container">
-
-              <h1>
-               Mundo Animal em Foco
-              </h1>
-
+              <h1>Mundo Animal em Foco</h1>
               <p>
-                Bem-vindo ao espaço lar certo de conhecimento. Dicas essenciais, informações
-                 sobre saúde vetrinária e curiosidades fascinentes para você entender e cuidar
-                 cada vez melhor do seu amigo.
+                Bem-vindo ao espaço LarCerto de conhecimento. Dicas essenciais, informações
+                sobre saúde veterinária e curiosidades fascinantes para você entender e cuidar
+                cada vez melhor do seu amigo.
               </p>
-
             </div>
-
           </section>
 
-
-          <section
-            id="blog"
-            className="content-section"
-          >
-
+          <section id="blog" className="content-section">
             <div className="search-box">
-
-              <IonIcon
-                icon={searchOutline}
-              />
-
+              <IonIcon icon={searchOutline} />
               <input
                 type="text"
                 placeholder="Pesquisar por título ou assunto..."
-
                 value={search}
-
-                onChange={(event) =>
-                  setSearch(
-                    event.target.value
-                  )
-                }
+                onChange={(event) => setSearch(event.target.value)}
               />
-
             </div>
-
 
             <div className="category-list">
-
-              {categories.map(
-                (category) => (
-
-                  <button
-                    key={category}
-
-                    className={
-                      activeCategory ===
-                        category
-                        ? "category active"
-                        : "category"
-                    }
-
-                    onClick={() =>
-                      setActiveCategory(
-                        category
-                      )
-                    }
-                  >
-
-                    {category}
-
-                  </button>
-
-                )
-              )}
-
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={activeCategory === category ? "category active" : "category"}
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
-
 
             <div className="articles-grid">
-
-              {filteredArticles.map(
-                (article) => (
-
-                  <ArticleCard
-                    key={article.id}
-
-                    image={
-                      article.image
-                    }
-
-                    category={
-                      article.category
-                    }
-
-                    date={
-                      article.date
-                    }
-
-                    title={
-                      article.title
-                    }
-                  />
-
-                )
-              )}
-
+              {filteredArticles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  image={article.image}
+                  category={article.category}
+                  date={article.date}
+                  title={article.title}
+                />
+              ))}
             </div>
 
-
             {filteredArticles.length === 0 && (
-
-              <div className="empty-state">
-
-                Nenhum conteúdo encontrado.
-
-              </div>
-
+              <div className="empty-state">Nenhum conteúdo encontrado.</div>
             )}
-
           </section>
-
         </main>
-
-=======
-          {isLoggedIn ? (
-            <IonAvatar slot="end" className="header-avatar">
-              <img
-                src="https://i.pravatar.cc/150?u=larcerto"
-                alt="User avatar"
-              />
-            </IonAvatar>
-          ) : (
-            <IonButton
-              slot="end"
-              fill="clear"
-              routerLink="/login"
-              style={{
-                "--color": "var(--ion-color-primary)",
-                fontWeight: "bold",
-              }}
-            >
-              Entrar
-            </IonButton>
-          )}
-        </IonToolbar>
-      </IonHeader>
-
-      <main>
-        <section id="inicio" className="hero">
-          <div className="hero-container">
-            <h1>Preencher 1280 × Envolver 90</h1>
-
-            <p>
-              Um espaço para encontrar conteúdos, histórias e informações que
-              inspiram.
-            </p>
-          </div>
-        </section>
-
-        <section id="blog" className="content-section">
-          <div className="search-box">
-            <IonIcon icon={searchOutline} />
-
-            <input
-              type="text"
-              placeholder="Pesquisar por título ou assunto..."
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-            />
-          </div>
-
-          <div className="category-list">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={
-                  activeCategory === category ? "category active" : "category"
-                }
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          <div className="articles-grid">
-            {filteredArticles.map((article) => (
-              <ArticleCard
-                key={article.id}
-                image={article.image}
-                category={article.category}
-                date={article.date}
-                title={article.title}
-              />
-            ))}
-          </div>
-
-          {filteredArticles.length === 0 && (
-            <div className="empty-state">Nenhum conteúdo encontrado.</div>
-          )}
-        </section>
-      </main>
->>>>>>> Stashed changes
 
         <Footer />
       </IonContent>
