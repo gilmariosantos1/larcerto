@@ -125,13 +125,13 @@ const Blog: React.FC = () => {
             <div className="hero-container">
 
               <h1>
-                Preencher 1280 × Envolver 90
+               Mundo Animal em Foco
               </h1>
 
               <p>
-                Um espaço para encontrar
-                conteúdos, histórias e
-                informações que inspiram.
+                Bem-vindo ao espaço lar certo de conhecimento. Dicas essenciais, informações
+                 sobre saúde vetrinária e curiosidades fascinentes para você entender e cuidar
+                 cada vez melhor do seu amigo.
               </p>
 
             </div>
