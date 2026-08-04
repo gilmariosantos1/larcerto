@@ -90,159 +90,160 @@ const Blog: React.FC = () => {
 
   return (
     <IonPage>
+      <IonContent fullscreen>...
 
-      <IonHeader className="ion-no-border">
-        <IonToolbar className="custom-toolbar">
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
+        <IonHeader className="ion-no-border">
+          <IonToolbar className="custom-toolbar">
+            <IonButtons slot="start">
+              <IonMenuButton />
+            </IonButtons>
 
-          <div className="header-brand" slot="start">
-            <IonIcon icon={paw} className="header-logo-icon" />
-            <span className="header-logo-text">LarCerto</span>
-          </div>
+            <div className="header-brand" slot="start">
+              <IonIcon icon={paw} className="header-logo-icon" />
+              <span className="header-logo-text">LarCerto</span>
+            </div>
 
-          {isLoggedIn ? (
-            <IonAvatar slot="end" className="header-avatar">
-              <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
-            </IonAvatar>
-          ) : (
-            <IonButton slot="end" fill="clear" routerLink="/login" style={{ '--color': 'var(--ion-color-primary)', fontWeight: 'bold' }}>
-              Entrar
-            </IonButton>
-          )}
-        </IonToolbar>
-      </IonHeader>
-
-      <main>
-
-        <section
-          id="inicio"
-          className="hero"
-        >
-
-          <div className="hero-container">
-
-            <h1>
-              Preencher 1280 × Envolver 90
-            </h1>
-
-            <p>
-              Um espaço para encontrar
-              conteúdos, histórias e
-              informações que inspiram.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        <section
-          id="blog"
-          className="content-section"
-        >
-
-          <div className="search-box">
-
-            <IonIcon
-              icon={searchOutline}
-            />
-
-            <input
-              type="text"
-              placeholder="Pesquisar por título ou assunto..."
-
-              value={search}
-
-              onChange={(event) =>
-                setSearch(
-                  event.target.value
-                )
-              }
-            />
-
-          </div>
-
-
-          <div className="category-list">
-
-            {categories.map(
-              (category) => (
-
-                <button
-                  key={category}
-
-                  className={
-                    activeCategory ===
-                      category
-                      ? "category active"
-                      : "category"
-                  }
-
-                  onClick={() =>
-                    setActiveCategory(
-                      category
-                    )
-                  }
-                >
-
-                  {category}
-
-                </button>
-
-              )
+            {isLoggedIn ? (
+              <IonAvatar slot="end" className="header-avatar">
+                <img src="https://i.pravatar.cc/150?u=larcerto" alt="User avatar" />
+              </IonAvatar>
+            ) : (
+              <IonButton slot="end" fill="clear" routerLink="/login" style={{ '--color': 'var(--ion-color-primary)', fontWeight: 'bold' }}>
+                Entrar
+              </IonButton>
             )}
+          </IonToolbar>
+        </IonHeader>
 
-          </div>
+        <main>
 
+          <section
+            id="inicio"
+            className="hero"
+          >
 
-          <div className="articles-grid">
+            <div className="hero-container">
 
-            {filteredArticles.map(
-              (article) => (
+              <h1>
+                Preencher 1280 × Envolver 90
+              </h1>
 
-                <ArticleCard
-                  key={article.id}
-
-                  image={
-                    article.image
-                  }
-
-                  category={
-                    article.category
-                  }
-
-                  date={
-                    article.date
-                  }
-
-                  title={
-                    article.title
-                  }
-                />
-
-              )
-            )}
-
-          </div>
-
-
-          {filteredArticles.length === 0 && (
-
-            <div className="empty-state">
-
-              Nenhum conteúdo encontrado.
+              <p>
+                Um espaço para encontrar
+                conteúdos, histórias e
+                informações que inspiram.
+              </p>
 
             </div>
 
-          )}
+          </section>
 
-        </section>
 
-      </main>
+          <section
+            id="blog"
+            className="content-section"
+          >
 
-      <IonContent fullscreen>
+            <div className="search-box">
+
+              <IonIcon
+                icon={searchOutline}
+              />
+
+              <input
+                type="text"
+                placeholder="Pesquisar por título ou assunto..."
+
+                value={search}
+
+                onChange={(event) =>
+                  setSearch(
+                    event.target.value
+                  )
+                }
+              />
+
+            </div>
+
+
+            <div className="category-list">
+
+              {categories.map(
+                (category) => (
+
+                  <button
+                    key={category}
+
+                    className={
+                      activeCategory ===
+                        category
+                        ? "category active"
+                        : "category"
+                    }
+
+                    onClick={() =>
+                      setActiveCategory(
+                        category
+                      )
+                    }
+                  >
+
+                    {category}
+
+                  </button>
+
+                )
+              )}
+
+            </div>
+
+
+            <div className="articles-grid">
+
+              {filteredArticles.map(
+                (article) => (
+
+                  <ArticleCard
+                    key={article.id}
+
+                    image={
+                      article.image
+                    }
+
+                    category={
+                      article.category
+                    }
+
+                    date={
+                      article.date
+                    }
+
+                    title={
+                      article.title
+                    }
+                  />
+
+                )
+              )}
+
+            </div>
+
+
+            {filteredArticles.length === 0 && (
+
+              <div className="empty-state">
+
+                Nenhum conteúdo encontrado.
+
+              </div>
+
+            )}
+
+          </section>
+
+        </main>
+
+
         <Footer />
       </IonContent>
 
